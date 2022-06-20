@@ -20,7 +20,7 @@ function MainInformation(){
 
                 <div className="container--element">
 
-                    <div className="container--element--dateDiv">
+                    <div className="container__element--dateDiv">
                         <h6>Today</h6>
                         <h6>Fri, 5 Jun</h6>
 
