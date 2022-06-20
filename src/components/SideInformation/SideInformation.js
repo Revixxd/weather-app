@@ -8,8 +8,8 @@ function SideInformation(){
             <div className="SideInformationStyled--container">
 
                 <div className="SideInformationStyled__container--temperatureChooseDiv">
-                    <button>°C</button>
-                    <button>°F</button>
+                    <button>C°</button>
+                    <button>F°</button>
                 </div>
                 <TodaysHighlights/>
                 <WeekTemperature/>
