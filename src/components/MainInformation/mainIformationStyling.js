@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const MainInformationStyled = styled.div`
-    @media (max-width:60em){
+    @media (max-width:43em){
         grid-column: span 2;
     }
 
@@ -12,24 +12,27 @@ export const MainInformationStyled = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-
     .container{
+        height: 80%;
+        width: 80%;
+        max-width: 400px;
+
         justify-content: space-between;
         align-items: center;
         display: flex;
-        height: 95%;
-        width: 80%;
         flex-direction: column;
     }
     .container--locationInputDiv{
+        width: 100%;
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: inherit;
     }
     .container--imageContainer{
         
     }
     .container--imageContainer img{
-        width: 100%;
+        margin: 0 auto;
+        max-width: 100%;
     }
 `

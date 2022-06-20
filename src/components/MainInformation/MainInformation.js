@@ -1,14 +1,16 @@
 import { MainInformationStyled } from "./mainIformationStyling"
+import weather from '../../resources/images/Snow.png'
 function MainInformation(){
+
     return(
         <MainInformationStyled>
             <div className="container">
                 <div className="container--locationInputDiv">
-                    <button>Search for places</button>
+                    <button >Search for places</button>
                     <button>Location</button>
                 </div>
                 <div className="container--imageContainer">
-                    <img src="https://picsum.photos/20/30"></img>
+                    <img src={weather}></img>
                 </div>
 
                 <div className="container--information">
