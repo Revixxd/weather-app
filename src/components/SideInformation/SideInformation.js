@@ -1,4 +1,4 @@
-import WeekTemperature from "./WeekTemperature/WeekTemperature"
+import DayWeatherInfo from "./DayWeatherInfo/DayWeatherInfo"
 import TodaysHighlights from "./DaysForcast/DayForcast"
 
 import { SideInformationStyled } from "./sideInformationStyling"
@@ -12,7 +12,7 @@ function SideInformation(){
                     <button>F°</button>
                 </div>
                 <TodaysHighlights/>
-                <WeekTemperature/>
+                <DayWeatherInfo/>
                 {/* <footer></footer> */}
 
             </div>

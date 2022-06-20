@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const WeekTemperatureStyled = styled.div`
+export const DayWeatherInfoStyled = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1rem;

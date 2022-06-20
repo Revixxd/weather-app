@@ -1,10 +1,10 @@
 import React from "react";
 
-import {WeekTemperatureStyled} from "./weekTemperatureStyling"
+import {DayWeatherInfoStyled} from "./dayWeatherInfoStyling"
 
-function WeekTemperature(){
+function DayWeatherInfo(){
     return(
-        <WeekTemperatureStyled>
+        <DayWeatherInfoStyled>
             <h3>Today’s Hightlights </h3>
             <div className="weekTemperature--container">
                 <div className="weekTemperature__container--element">
@@ -24,8 +24,8 @@ function WeekTemperature(){
                     <h2>6,4 miles</h2>
                 </div>
             </div>
-        </WeekTemperatureStyled>
+        </DayWeatherInfoStyled>
     )
 }
 
-export default WeekTemperature
+export default DayWeatherInfo
