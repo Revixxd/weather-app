@@ -6,7 +6,8 @@ import { MainInformationStyled } from "./mainIformationStyling"
 import {BiCurrentLocation} from "@react-icons/all-files/bi/BiCurrentLocation"
 
 import weather from '../../resources/images/Snow.png'
-function MainInformation(){
+function MainInformation(props){
+
     const deafulComponentState = false
     const [isSearchComponent,setIsSearchComponent] = React.useState(deafulComponentState)
 
