@@ -11,7 +11,6 @@ import SideInformation from "./components/SideInformation/SideInformation";
 
 import MainInformation from "./components/MainInformation/MainInformation"
 
-import SearchLocation from "./components/SearchLocation/SearchLocation"
 
 function App() {
 
@@ -26,7 +25,6 @@ function App() {
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <GlobalStyles/>
       <StyledApp>
-          {/* <SearchLocation /> */}
           <MainInformation/>
           <SideInformation/>
       </StyledApp>

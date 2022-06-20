@@ -1,8 +1,21 @@
+import WeekTemperature from "./WeekTemperature/WeekTemperature"
+import TodaysHighlights from "./TodaysHighlights/TodayHighlights"
+
 import { SideInformationStyled } from "./sideInformationStyling"
 function SideInformation(){
     return(
         <SideInformationStyled>
-            <h1>test</h1>
+            <div className="SideInformationStyled--container">
+
+                <div className="SideInformationStyled__container--temperatureChooseDiv">
+                    <button>°C</button>
+                    <button>°F</button>
+                </div>
+                <TodaysHighlights/>
+                <WeekTemperature/>
+                {/* <footer></footer> */}
+
+            </div>
         </SideInformationStyled>
     )
 }
