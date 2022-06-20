@@ -9,7 +9,7 @@ export const darkTheme = {
     thirdColor: "#88869D",
 
     unselectedOption: "#585676"
-
+    
 }
 export const lightTheme = {
     bodyMainColor: "#1E213A",

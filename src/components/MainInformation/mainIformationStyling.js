@@ -9,6 +9,7 @@ export const MainInformationStyled = styled.div`
     position: relative;
     
     height: 100%;
+    min-height: 100vh;
     
     display: flex;
     justify-content: center;

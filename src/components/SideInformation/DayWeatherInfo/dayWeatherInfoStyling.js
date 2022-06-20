@@ -8,7 +8,7 @@ export const DayWeatherInfoStyled = styled.div`
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        gap: 10rem;
+        gap: 5rem;
     }
     .weekTemperature__container--element{
         width: 200px;
