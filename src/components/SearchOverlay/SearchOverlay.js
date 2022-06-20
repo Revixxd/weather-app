@@ -2,10 +2,10 @@ import React from "react";
 
 import { StyledSearchOverlay } from "./searchOverlayStyling";
 
-function SearchOverlay(){
+function SearchOverlay(props){
     return(
         <StyledSearchOverlay>
-            <button>Exit</button>
+            <button onClick={props.handleClick}>Exit</button>
             <div className="StyledSearchOverlay--container">
                 <div className="StyledSearchOverlay__container--searchDiv">
                     <form>

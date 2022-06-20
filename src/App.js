@@ -21,7 +21,6 @@ function App() {
     theme === "light" ? setTheme("dark") : setTheme("light")
   }
 
-  const[isSearchComponent,setIsSearchComponent] = React.useState(false)
 
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>

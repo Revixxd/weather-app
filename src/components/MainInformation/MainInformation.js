@@ -1,3 +1,5 @@
+import React from "react"
+
 import SearchOverlay from "../SearchOverlay/SearchOverlay"
 
 import { MainInformationStyled } from "./mainIformationStyling"
@@ -5,13 +7,19 @@ import {BiCurrentLocation} from "@react-icons/all-files/bi/BiCurrentLocation"
 
 import weather from '../../resources/images/Snow.png'
 function MainInformation(){
+    const deafulComponentState = false
+    const [isSearchComponent,setIsSearchComponent] = React.useState(deafulComponentState)
+
+    function changeSearchState(){
+        setIsSearchComponent(prevState => !prevState)
+    }
 
     return(
         <MainInformationStyled>
-            <SearchOverlay />
+            {isSearchComponent && <SearchOverlay handleClick = {changeSearchState}/>}
             <div className="container">
                 <div className="container--locationInputDiv">
-                    <button >Search for places</button>
+                    <button onClick={changeSearchState}>Search for places</button>
                     <button><BiCurrentLocation/></button>
                 </div>
                 <div className="container--imageContainer">
