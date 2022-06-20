@@ -1,11 +1,17 @@
 import React from "react";
 
+import TodayHighlightsElement from "./TodayHighlightsElement/TodayHighLightsElement";
+
 import { TodayHighlightsStyled } from "./todayHighlightsStyling";
 
 function TodaysHighlights(){
     return(
         <TodayHighlightsStyled>
-            <h1>Test_Today</h1>
+            <TodayHighlightsElement/>
+            <TodayHighlightsElement/>
+            <TodayHighlightsElement/>
+            <TodayHighlightsElement/>
+            <TodayHighlightsElement/>
         </TodayHighlightsStyled>
     )
 }

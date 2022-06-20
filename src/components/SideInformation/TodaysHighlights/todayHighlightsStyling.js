@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const TodayHighlightsStyled = styled.div`
-    background-color: blue;
-
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5rem;
 `
