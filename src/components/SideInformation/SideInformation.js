@@ -1,5 +1,5 @@
 import WeekTemperature from "./WeekTemperature/WeekTemperature"
-import TodaysHighlights from "./TodaysHighlights/TodayHighlights"
+import TodaysHighlights from "./DaysForcast/DayForcast"
 
 import { SideInformationStyled } from "./sideInformationStyling"
 function SideInformation(){

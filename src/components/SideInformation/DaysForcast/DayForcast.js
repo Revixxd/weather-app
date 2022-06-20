@@ -1,18 +1,18 @@
 import React from "react";
 
-import TodayHighlightsElement from "./TodayHighlightsElement/TodayHighLightsElement";
+import TodayHighlightsElement from "./DayForcastElement/DayForcastElement";
 
-import { TodayHighlightsStyled } from "./todayHighlightsStyling";
+import { DayForcastStyling } from "./dayForcastStyling";
 
 function TodaysHighlights(){
     return(
-        <TodayHighlightsStyled>
+        <DayForcastStyling>
             <TodayHighlightsElement/>
             <TodayHighlightsElement/>
             <TodayHighlightsElement/>
             <TodayHighlightsElement/>
             <TodayHighlightsElement/>
-        </TodayHighlightsStyled>
+        </DayForcastStyling>
     )
 }
 
