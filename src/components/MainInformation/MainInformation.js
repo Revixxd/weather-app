@@ -1,3 +1,5 @@
+import SearchOverlay from "../SearchOverlay/SearchOverlay"
+
 import { MainInformationStyled } from "./mainIformationStyling"
 import {BiCurrentLocation} from "@react-icons/all-files/bi/BiCurrentLocation"
 
@@ -6,7 +8,7 @@ function MainInformation(){
 
     return(
         <MainInformationStyled>
-            
+            <SearchOverlay />
             <div className="container">
                 <div className="container--locationInputDiv">
                     <button >Search for places</button>

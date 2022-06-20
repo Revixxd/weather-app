@@ -4,15 +4,21 @@ export const MainInformationStyled = styled.div`
     @media (max-width:43em){
         grid-column: span 2;
     }
-
+    
+    //for position absolute overlay component
+    position: relative;
+    
     height: 100%;
-
-    background-color: ${props => props.theme.bodyMainColor};
-
+    
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+
+    background-color: ${props => props.theme.bodyMainColor};
+
     .container{
+        
         height: 80%;
         width: 80%;
         max-width: 400px;

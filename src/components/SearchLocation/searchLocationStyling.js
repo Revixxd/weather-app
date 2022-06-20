@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledApp = styled.main`
+export const SearchLocationStyled = styled.div`
     width: 100vw;
     height: 100vh;
 
