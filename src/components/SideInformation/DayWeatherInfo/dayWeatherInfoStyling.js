@@ -14,4 +14,7 @@ export const DayWeatherInfoStyled = styled.div`
         width: 200px;
         background-color: ${props => props.theme.elementBackGround};
     }
+    .mainElement{
+
+    }
 `
