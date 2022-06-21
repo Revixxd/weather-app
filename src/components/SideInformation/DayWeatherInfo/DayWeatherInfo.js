@@ -7,14 +7,16 @@ function DayWeatherInfo(){
         <DayWeatherInfoStyled>
             <h1>Today’s Hightlights </h1>
             <div className="weekTemperature--container">
-                <div className="weekTemperature__container--element mainElement">
+
+                <div className="weekTemperature__container--element ">
                     <h2>Wind Status</h2>
                     <h2>7mph</h2>
                 </div>
-                <div className="weekTemperature__container--element mainElement">
+                <div className="weekTemperature__container--element ">
                     <h2>Wind Status</h2>
                     <h2>7mph</h2>
                 </div>
+
                 <div className="weekTemperature__container--element">
                     <h2>Visibility</h2>
                     <h2>6,4 miles</h2>

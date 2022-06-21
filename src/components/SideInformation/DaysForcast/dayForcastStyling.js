@@ -5,5 +5,4 @@ export const DayForcastStyling = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
     gap: 1rem;
-    justify-content: space-between;
 `

@@ -12,6 +12,7 @@ export const SideInformationStyled = styled.div`
     
     .SideInformationStyled--container{
         width: 80%;
+        max-width: 700px;
         height: 95%;
 
         display: flex;
