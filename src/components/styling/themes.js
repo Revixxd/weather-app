@@ -8,10 +8,12 @@ export const darkTheme = {
     secondColor: "#A09FB1",
     thirdColor: "#88869D",
 
+    searchButton: "#3C47E9",
     unselectedOption: "#585676",
 
     buttonBackground: "#6E707A"
     
+
 }
 export const lightTheme = {
     bodyMainColor: "#1E213A",

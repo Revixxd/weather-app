@@ -28,7 +28,9 @@ export const GlobalStyles = createGlobalStyle`
         h5,h6{
             color: ${props => props.theme.thirdColor}
         }
-        
+        button{
+            cursor: pointer;
+        }
     }
 
 `
