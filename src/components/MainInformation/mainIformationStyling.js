@@ -20,7 +20,7 @@ export const MainInformationStyled = styled.div`
 
     .container{
         
-        height: 80%;
+        height: 90%;
         width: 80%;
         max-width: 400px;
 
@@ -35,11 +35,51 @@ export const MainInformationStyled = styled.div`
         flex-direction: row;
         justify-content: inherit;
     }
+    .container--locationInputDiv svg{
+        font-size: 20px;
+    }
+    .container--locationInputDiv button{
+        cursor: pointer;
+        color: ${props => props.theme.mainColor};
+        background-color: ${props => props.theme.buttonBackground};
+        border: none;
+        padding: 0.6em;
+    }
+    .container__locationInputDiv--roundedButton{
+        display: block;
+        border-radius: 50%;
+    }
     .container--imageContainer{
         
     }
     .container--imageContainer img{
         margin: 0 auto;
         max-width: 100%;
+    }
+    .container--information{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5vh;
+    }
+    .container__information--temperaturediv{
+        display: flex;
+        flex-direction: row;
+        align-items: first baseline;
+    }
+    .container--footer{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        gap: 3vh;
+    }
+    .container__footer--dateDiv{
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+    }
+    .container__footer--dateDiv span{
+        color: ${props => props.theme.mainColor}
     }
 `

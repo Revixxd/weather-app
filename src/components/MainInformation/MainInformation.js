@@ -21,21 +21,25 @@ function MainInformation(props){
             <div className="container">
                 <div className="container--locationInputDiv">
                     <button onClick={changeSearchState}>Search for places</button>
-                    <button><BiCurrentLocation/></button>
+                    <button className="container__locationInputDiv--roundedButton"><BiCurrentLocation/></button>
                 </div>
                 <div className="container--imageContainer">
                     <img src={weather}></img>
                 </div>
 
                 <div className="container--information">
-                    <h1>15</h1>
+                    <div className="container__information--temperaturediv">
+                        <h1>15</h1>
+                        <h3>℃</h3>
+                    </div>
                     <h3>Shower</h3>
                 </div>
 
-                <div className="container--element">
+                <div className="container--footer">
 
-                    <div className="container__element--dateDiv">
+                    <div className="container__footer--dateDiv">
                         <h6>Today</h6>
+                        <span>&#183;</span>
                         <h6>Fri, 5 Jun</h6>
 
                     </div>
