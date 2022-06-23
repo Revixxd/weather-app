@@ -12,8 +12,15 @@ export const DayWeatherInfoStyled = styled.div`
     }
     .weekTemperature__container--element{
         background-color: ${props => props.theme.elementBackGround};
-        flex-grow: 1;
-        flex-basis: 200px;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.35em;
     }
-
+    .weekTemperature__container__element--textContent{
+        display: flex;
+        flex-direction: row;
+        align-items: first baseline;
+    }
+    
 `

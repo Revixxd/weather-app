@@ -13,11 +13,11 @@ export const SideInformationStyled = styled.div`
     .SideInformationStyled--container{
         width: 80%;
         max-width: 700px;
-        height: 95%;
+        height: 90%;
 
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
+        justify-content: space-between;
 
     }
 

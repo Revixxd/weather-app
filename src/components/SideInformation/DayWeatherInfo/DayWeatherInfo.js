@@ -9,21 +9,33 @@ function DayWeatherInfo(){
             <div className="weekTemperature--container">
 
                 <div className="weekTemperature__container--element ">
-                    <h2>Wind Status</h2>
-                    <h2>7mph</h2>
+                    <h4>Wind Status</h4>
+                    <div className="weekTemperature__container__element--textContent">
+                        <h2>7</h2>
+                        <h4>mph</h4>
+                    </div>
                 </div>
                 <div className="weekTemperature__container--element ">
-                    <h2>Wind Status</h2>
-                    <h2>7mph</h2>
+                    <h4>Humidity</h4>
+                    <div className="weekTemperature__container__element--textContent">
+                        <h2>84</h2>
+                        <h4>%</h4>
+                    </div>
                 </div>
 
                 <div className="weekTemperature__container--element">
-                    <h2>Visibility</h2>
-                    <h2>6,4 miles</h2>
+                    <h4>Visibility</h4>
+                    <div className="weekTemperature__container__element--textContent">
+                        <h2>6,4</h2>
+                        <h4>miles</h4>
+                    </div>
                 </div>
                 <div className="weekTemperature__container--element">
-                    <h2>Visibility</h2>
-                    <h2>6,4 miles</h2>
+                    <h4>Air Pressure</h4>
+                    <div className="weekTemperature__container__element--textContent">
+                        <h2>998</h2>
+                        <h4>mb</h4>
+                    </div>
                 </div>
             </div>
         </DayWeatherInfoStyled>
