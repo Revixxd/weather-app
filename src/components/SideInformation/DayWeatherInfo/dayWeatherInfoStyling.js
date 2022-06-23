@@ -16,6 +16,9 @@ export const DayWeatherInfoStyled = styled.div`
         flex-direction: column;
         gap: 1rem;
         padding: 1.35em;
+        flex-basis: 200px;
+        flex-grow: 1;
+        align-items: center;
     }
     .weekTemperature__container__element--textContent{
         display: flex;
