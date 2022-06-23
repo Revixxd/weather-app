@@ -17,7 +17,7 @@ export const GlobalStyles = createGlobalStyle`
             font-size: 1.2rem;
             font-weight: normal;
         }
-        h1,h2,h4,h6{
+        h1,h2,h4{
             color: ${props => props.theme.mainColor}
         }
         h3{
@@ -25,7 +25,7 @@ export const GlobalStyles = createGlobalStyle`
             font-size: 2.15rem;
             color: ${props => props.theme.secondColor}
         }
-        h5{
+        h5,h6{
             color: ${props => props.theme.thirdColor}
         }
         

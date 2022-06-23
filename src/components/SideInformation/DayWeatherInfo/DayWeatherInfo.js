@@ -5,7 +5,7 @@ import {DayWeatherInfoStyled} from "./dayWeatherInfoStyling"
 function DayWeatherInfo(){
     return(
         <DayWeatherInfoStyled>
-            <h1>Today’s Hightlights </h1>
+            <h2>Today’s Hightlights </h2>
             <div className="weekTemperature--container">
 
                 <div className="weekTemperature__container--element ">
