@@ -5,9 +5,8 @@ export const DayWeatherInfoStyled = styled.div`
     flex-direction: column;
     gap: 1rem;
     .weekTemperature--container{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(300px, 1fr));
         gap: 2rem;
     }
     .weekTemperature__container--element{
