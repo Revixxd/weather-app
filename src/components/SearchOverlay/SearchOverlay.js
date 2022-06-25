@@ -9,7 +9,7 @@ function SearchOverlay(props){
             <button onClick={props.handleClick}>Exit</button>
             <div className="styledSearchOverlay--formDiv">
                 <form>
-                    <input className="form-inputElement" placeHolder="search location"></input>
+                    <input className="form-inputElement" placeholder="search location"></input>
                     <button className="form-buttonElement">Search</button>
                 </form>
 

@@ -5,9 +5,9 @@ import TodayHighlightsElement from "./DayForcastElement/DayForcastElement";
 import { DayForcastStyling } from "./dayForcastStyling";
 
 function TodaysHighlights(props){
-    const elementsOfForcast = props.daysForcast.map(element =>{
+    const elementsOfForcast = props.daysForcast.map((element, i) =>{
         return(
-            <TodayHighlightsElement infoElement = {element}/>
+            <TodayHighlightsElement key ={i} infoElement = {element}/>
         )
     })
     return(

@@ -4,7 +4,6 @@ import { DayForcastElementStyled} from "./dayForcastElementStyling";
 import image from "../../../../resources/images/Clear.png"
 
 function TodayHighlightsElement(props){
-    console.log(props.infoElement)
     return(
         <DayForcastElementStyled>
             <h4>Tomorrow</h4>
