@@ -27,16 +27,15 @@ function App() {
 
   const [searchCity, setSearchCity] = React.useState("london")
 
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${searchCity}&appid=410e713617c25eb9e018ecafd290e053`
+  const url = `https://api.openweathermap.org/data/2.5/forecast?q=${searchCity}&appid=410e713617c25eb9e018ecafd290e053`
 
-  // const url = `api.openweathermap.org/data/2.5/forecast?q=${searchCity}&appid=410e713617c25eb9e018ecafd290e053`
-  console.log(data)
+
+  
 
 
   React.useEffect(()=>{
     axios.get(url).then((response) => {
       setData(response.data)
-      
     })
   }, [])
 
@@ -49,13 +48,14 @@ function App() {
     }
   }, [data])
 
+
   
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <GlobalStyles/>
       <StyledApp>
           {/* dodac tylko ze pierwszy element list zostanie przeslany do mainInformation */}
-          <MainInformation data = {data} />
+          <MainInformation cityInfo = {cityInfo} todayForcast = {todayForcast}/>
           <SideInformation/>
       </StyledApp>
     </ThemeProvider>

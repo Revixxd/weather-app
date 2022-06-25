@@ -7,7 +7,6 @@ import {BiCurrentLocation} from "@react-icons/all-files/bi/BiCurrentLocation"
 
 import weather from '../../resources/images/Snow.png'
 function MainInformation(props){
-
     const deafulComponentState = false
     const [isSearchComponent,setIsSearchComponent] = React.useState(deafulComponentState)
 
@@ -41,10 +40,10 @@ function MainInformation(props){
 
                 <div className="container--information">
                     <div className="container__information--temperaturediv">
-                        {props.data.main === undefined ? <h6>ISLOADING</h6> : <h1>{Math.round(props.data.main.temp - 273.15) }</h1>}
+                        {props.todayForcast.main === undefined ? <h6>ISLOADING</h6> : <h1>{Math.round(props.todayForcast.main.temp - 273.15) }</h1>}
                         <h3>℃</h3>
                     </div>
-                    {props.data.weather === undefined ? <h3>ISLOADING</h3> : <h3>{props.data.weather[0].main}</h3>}
+                    {props.todayForcast.weather === undefined ? <h3>ISLOADING</h3> : <h3>{props.todayForcast.weather[0].main}</h3>}
                 </div>
 
                 <div className="container--footer">
@@ -56,7 +55,7 @@ function MainInformation(props){
 
                     </div>
                     <div>
-                    {props.data.sys === undefined ? <h6>ISLOADING</h6> : <h6>{props.data.name}, {props.data.sys.country}</h6>}
+                    {props.cityInfo === undefined ? <h6>ISLOADING</h6> : <h6>{`${props.cityInfo.name}, ${props.cityInfo.country}`}</h6>}
                     </div>
                 </div>
             </div>
