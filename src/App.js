@@ -56,7 +56,7 @@ function App() {
       <StyledApp>
           {/* dodac tylko ze pierwszy element list zostanie przeslany do mainInformation */}
           <MainInformation cityInfo = {cityInfo} todayForcast = {todayForcast}/>
-          <SideInformation/>
+          <SideInformation todayForcast = {todayForcast}/>
       </StyledApp>
     </ThemeProvider>
   );
