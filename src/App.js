@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 //global styles
 import { GlobalStyles } from "./components/styling/globalStyles";
@@ -11,7 +11,7 @@ import SideInformation from "./components/SideInformation/SideInformation";
 
 import MainInformation from "./components/MainInformation/MainInformation"
 
-
+import axios from "axios"
 function App() {
 
   //darkMode functions 
@@ -20,34 +20,43 @@ function App() {
     theme === "light" ? setTheme("dark") : setTheme("light")
   }
 
-  const [data, setData] = React.useState([])
-  // const [weekData, setWeekData] = React.useState([])
-  console.log(data)
-  // const weekData = Arraydata.list.slice(1,0)
-  // console.log(weekData)
-  const options = {
-    method: 'GET',
-    headers: {
-      'X-RapidAPI-Key': '3ea321f13fmshe7a8d9c4e583f0ep120a55jsnd33338b170c7',
-      'X-RapidAPI-Host': 'community-open-weather-map.p.rapidapi.com'
-    }
-  };
+  const [data, setData] = React.useState({})
+  const [cityInfo, setCityInfo] = React.useState({})
+  const [daysForcast, setDaysForcast] = React.useState([])
+  const [todayForcast, setTodayForcast] = React.useState({})
+
+  const [searchCity, setSearchCity] = React.useState("london")
+
+  const url = `https://api.openweathermap.org/data/2.5/forecast?q=${searchCity}&appid=410e713617c25eb9e018ecafd290e053`
+
+
   
+
+
   React.useEffect(()=>{
-    fetch('https://community-open-weather-map.p.rapidapi.com/climate/month?q=brzeg%20dolny', options)
-      .then(response => response.json())
-      .then(data => setData(data))
-      .catch(err => console.error(err));
+    axios.get(url).then((response) => {
+      setData(response.data)
+    })
   }, [])
 
-  // console.log(data)
+
+  React.useEffect(()=>{
+    setCityInfo(data.city)
+    if(data.list !== undefined){
+      setDaysForcast(data.list.slice(0, 5))
+      setTodayForcast(data.list[0])
+    }
+  }, [data])
+
+
+  
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <GlobalStyles/>
       <StyledApp>
           {/* dodac tylko ze pierwszy element list zostanie przeslany do mainInformation */}
-          <MainInformation cityInformation = {data.city} todayTemp = {data.list}/>
-          <SideInformation/>
+          <MainInformation cityInfo = {cityInfo} todayForcast = {todayForcast}/>
+          <SideInformation todayForcast = {todayForcast} daysForcast={daysForcast}/>
       </StyledApp>
     </ThemeProvider>
   );

@@ -4,7 +4,8 @@ import DayWeatherInfo from "./DayWeatherInfo/DayWeatherInfo"
 import TodaysHighlights from "./DaysForcast/DayForcast"
 
 import { SideInformationStyled } from "./sideInformationStyling"
-function SideInformation(){
+
+function SideInformation(props){
 
     const [degreInfo, setDegreInfo] = React.useState("celcius")
 
@@ -31,8 +32,8 @@ function SideInformation(){
                     <button onClick={setCelciousDegree} className = {degreInfo === "celcius" ? 'buttonSelected':''}>C°</button>
                     <button onClick={setFahrenheitDegree} className = {degreInfo === "fahrenheit" ? 'buttonSelected':''}>F°</button>
                 </div>
-                <TodaysHighlights/>
-                <DayWeatherInfo/>
+                <TodaysHighlights daysForcast = {props.daysForcast}/>
+                <DayWeatherInfo todayForcast = {props.todayForcast}/>
                 {/* <footer></footer> */}
 
             </div>

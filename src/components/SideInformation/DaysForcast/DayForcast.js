@@ -4,14 +4,15 @@ import TodayHighlightsElement from "./DayForcastElement/DayForcastElement";
 
 import { DayForcastStyling } from "./dayForcastStyling";
 
-function TodaysHighlights(){
+function TodaysHighlights(props){
+    const elementsOfForcast = props.daysForcast.map(element =>{
+        return(
+            <TodayHighlightsElement infoElement = {element}/>
+        )
+    })
     return(
         <DayForcastStyling>
-            <TodayHighlightsElement/>
-            <TodayHighlightsElement/>
-            <TodayHighlightsElement/>
-            <TodayHighlightsElement/>
-            <TodayHighlightsElement/>
+            {props.daysForcast !== undefined ? elementsOfForcast : <h5>Loading</h5>}
         </DayForcastStyling>
     )
 }

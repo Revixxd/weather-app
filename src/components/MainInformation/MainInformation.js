@@ -7,13 +7,24 @@ import {BiCurrentLocation} from "@react-icons/all-files/bi/BiCurrentLocation"
 
 import weather from '../../resources/images/Snow.png'
 function MainInformation(props){
-
     const deafulComponentState = false
     const [isSearchComponent,setIsSearchComponent] = React.useState(deafulComponentState)
 
     function changeSearchState(){
         setIsSearchComponent(prevState => !prevState)
     }
+
+    const currentTime = new Date();
+    const currentDay = currentTime.getDate()
+    const currentDayName = currentTime.getDay()
+    const currentMonth = currentTime.getMonth()
+
+
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"];
+    const dayNames = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat",
+    "Sun"];
+
 
     return(
         <MainInformationStyled>
@@ -29,10 +40,10 @@ function MainInformation(props){
 
                 <div className="container--information">
                     <div className="container__information--temperaturediv">
-                        <h1>15</h1>
+                        {props.todayForcast.main === undefined ? <h6>ISLOADING</h6> : <h1>{Math.round(props.todayForcast.main.temp - 273.15) }</h1>}
                         <h3>℃</h3>
                     </div>
-                    <h3>Shower</h3>
+                    {props.todayForcast.weather === undefined ? <h3>ISLOADING</h3> : <h3>{props.todayForcast.weather[0].main}</h3>}
                 </div>
 
                 <div className="container--footer">
@@ -40,10 +51,12 @@ function MainInformation(props){
                     <div className="container__footer--dateDiv">
                         <h6>Today</h6>
                         <span>&#183;</span>
-                        <h6>Fri, 5 Jun</h6>
+                        <h6> {`${dayNames[currentDayName]} ,${currentDay} ${monthNames[currentMonth]}`}</h6>
 
                     </div>
-                    <h6>Helsinki</h6>
+                    <div>
+                    {props.cityInfo === undefined ? <h6>ISLOADING</h6> : <h6>{`${props.cityInfo.name}, ${props.cityInfo.country}`}</h6>}
+                    </div>
                 </div>
             </div>
         </MainInformationStyled>
