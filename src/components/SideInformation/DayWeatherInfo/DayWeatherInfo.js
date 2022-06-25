@@ -3,7 +3,6 @@ import React from "react";
 import {DayWeatherInfoStyled} from "./dayWeatherInfoStyling"
 
 function DayWeatherInfo(props){
-    console.log(props.todayForcast)
     return(
         <DayWeatherInfoStyled>
             <h2>Today’s Hightlights </h2>

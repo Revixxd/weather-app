@@ -22,7 +22,7 @@ function App() {
 
   const [data, setData] = React.useState({})
   const [cityInfo, setCityInfo] = React.useState({})
-  const [daysForcast, setDaysForcast] = React.useState({})
+  const [daysForcast, setDaysForcast] = React.useState([])
   const [todayForcast, setTodayForcast] = React.useState({})
 
   const [searchCity, setSearchCity] = React.useState("london")
@@ -42,8 +42,8 @@ function App() {
 
   React.useEffect(()=>{
     setCityInfo(data.city)
-    setDaysForcast(data.list)
     if(data.list !== undefined){
+      setDaysForcast(data.list.slice(0, 5))
       setTodayForcast(data.list[0])
     }
   }, [data])
@@ -56,7 +56,7 @@ function App() {
       <StyledApp>
           {/* dodac tylko ze pierwszy element list zostanie przeslany do mainInformation */}
           <MainInformation cityInfo = {cityInfo} todayForcast = {todayForcast}/>
-          <SideInformation todayForcast = {todayForcast}/>
+          <SideInformation todayForcast = {todayForcast} daysForcast={daysForcast}/>
       </StyledApp>
     </ThemeProvider>
   );
