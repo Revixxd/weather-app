@@ -10,13 +10,13 @@ function SideInformation(props){
     const [degreInfo, setDegreInfo] = React.useState("celcius")
 
     function setCelciousDegree(){
-        if(degreInfo != "celcius"){
+        if(degreInfo !== "celcius"){
             setDegreInfo("celcius")
             console.log("celcius")
         }
     }
     function setFahrenheitDegree(){
-        if(degreInfo != "fahrenheit"){
+        if(degreInfo !== "fahrenheit"){
             setDegreInfo("fahrenheit")
             console.log("fahrenheit")
         }

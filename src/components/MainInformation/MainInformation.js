@@ -35,7 +35,7 @@ function MainInformation(props){
                     <button className="container__locationInputDiv--roundedButton"><BiCurrentLocation/></button>
                 </div>
                 <div className="container--imageContainer">
-                    <img src={weather}></img>
+                    <img alt="weatherImage" src={weather}></img>
                 </div>
 
                 <div className="container--information">

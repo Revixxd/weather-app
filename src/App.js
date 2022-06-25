@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 //global styles
 import { GlobalStyles } from "./components/styling/globalStyles";
@@ -16,6 +16,7 @@ function App() {
 
   //darkMode functions 
   const[theme, setTheme] = React.useState("dark")
+  
   function changeTheme(){
     theme === "light" ? setTheme("dark") : setTheme("light")
   }
@@ -28,9 +29,6 @@ function App() {
   const [searchCity, setSearchCity] = React.useState("london")
 
   const url = `https://api.openweathermap.org/data/2.5/forecast?q=${searchCity}&appid=410e713617c25eb9e018ecafd290e053`
-
-
-  
 
 
   React.useEffect(()=>{

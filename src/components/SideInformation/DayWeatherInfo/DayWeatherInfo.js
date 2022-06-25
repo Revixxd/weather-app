@@ -28,7 +28,7 @@ function DayWeatherInfo(props){
                     <h4>Visibility</h4>
                     <div className="weekTemperature__container__element--textContent">
                         <h2>{props.todayForcast.visibility}</h2>
-                        <h4></h4>
+                        {/* <h4></h4> */}
                     </div>
                 </div> : <h5>loading</h5>}
 
