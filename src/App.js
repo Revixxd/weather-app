@@ -26,7 +26,7 @@ function App() {
   const [daysForcast, setDaysForcast] = React.useState([])
   const [todayForcast, setTodayForcast] = React.useState({})
 
-  const [searchCity, setSearchCity] = React.useState("london")
+  const [searchCity, setSearchCity] = React.useState("warszawa")
 
   const url = `https://api.openweathermap.org/data/2.5/forecast?q=${searchCity}&appid=410e713617c25eb9e018ecafd290e053`
 
@@ -35,7 +35,7 @@ function App() {
     axios.get(url).then((response) => {
       setData(response.data)
     })
-  }, [])
+  }, [url])
 
 
   React.useEffect(()=>{
@@ -44,6 +44,7 @@ function App() {
       setDaysForcast(data.list.slice(0, 5))
       setTodayForcast(data.list[0])
     }
+    // setSearchCity('')
   }, [data])
 
 
@@ -53,7 +54,7 @@ function App() {
       <GlobalStyles/>
       <StyledApp>
           {/* dodac tylko ze pierwszy element list zostanie przeslany do mainInformation */}
-          <MainInformation cityInfo = {cityInfo} todayForcast = {todayForcast}/>
+          <MainInformation searchCity = {searchCity} changeCity = {setSearchCity} cityInfo = {cityInfo} todayForcast = {todayForcast}/>
           <SideInformation todayForcast = {todayForcast} daysForcast={daysForcast}/>
       </StyledApp>
     </ThemeProvider>

@@ -28,7 +28,10 @@ function MainInformation(props){
 
     return(
         <MainInformationStyled>
-            {isSearchComponent && <SearchOverlay handleClick = {changeSearchState}/>}
+            {isSearchComponent && <SearchOverlay 
+            changeCity = {props.changeCity} 
+            searchCity = {props.searchCity} 
+            handleClick = {changeSearchState}/>}
             <div className="container">
                 <div className="container--locationInputDiv">
                     <button onClick={changeSearchState}>Search for places</button>
