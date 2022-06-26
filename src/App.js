@@ -11,7 +11,7 @@ import SideInformation from "./components/SideInformation/SideInformation";
 
 import MainInformation from "./components/MainInformation/MainInformation"
 
-import axios from "axios"
+import axios from 'axios';
 function App() {
 
   //darkMode functions 
