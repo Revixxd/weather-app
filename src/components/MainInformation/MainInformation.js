@@ -54,8 +54,7 @@ function MainInformation(props){
 
                     <div className="container__footer--dateDiv">
                         <h6>Today</h6>
-                        <span>&#183;</span>
-                        <h6> {`${dayNames[currentDayName]} ,${currentDay} ${monthNames[currentMonth]}`}</h6>
+                        <h6> {`${dayNames[currentDayName]}, ${currentDay} ${monthNames[currentMonth]}`}</h6>
 
                     </div>
                     <div>

@@ -77,7 +77,10 @@ export const MainInformationStyled = styled.div`
     .container__footer--dateDiv{
         display: flex;
         flex-direction: row;
-        gap: 1rem;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        justify-content: center;
+
     }
     .container__footer--dateDiv span{
         color: ${props => props.theme.mainColor}

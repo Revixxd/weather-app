@@ -34,7 +34,11 @@ function SideInformation(props){
                 </div>
                 <TodaysHighlights daysForcast = {props.daysForcast}/>
                 <DayWeatherInfo todayForcast = {props.todayForcast}/>
-                {/* <footer></footer> */}
+                <footer>
+                    <span> <a href="https://github.com/Revixxd" target="_blank" class="profileName">Created by 
+                    <u> Revixxd</u></a></span> - <span><a href="https://devchallenges.io"
+                target="_blank">devChallenges.io</a></span>
+                </footer>
 
             </div>
         </SideInformationStyled>

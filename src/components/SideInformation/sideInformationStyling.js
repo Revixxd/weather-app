@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const SideInformationStyled = styled.div`
     grid-column: span 2;
     
-    height: 100%;
+    height: 100vh;
 
     background-color: ${props => props.theme.bodySecondColor};
     display: flex;
@@ -11,9 +11,9 @@ export const SideInformationStyled = styled.div`
     align-items: center;
     
     .SideInformationStyled--container{
-        width: 80%;
-        max-width: 700px;
-        height: 90%;
+        width: 90%;
+        max-width: 750px;
+        height: 95%;
 
         display: flex;
         flex-direction: column;
@@ -40,6 +40,12 @@ export const SideInformationStyled = styled.div`
     .buttonSelected{
         background-color: ${props => props.theme.mainColor} !important ;
         color: ${props => props.theme.unselectedOption} !important;
+    }
+    footer{
+        text-align: center;
+    }
+    footer a, u{
+    color: ${props => props.theme.secondColor};
     }
 
 `
