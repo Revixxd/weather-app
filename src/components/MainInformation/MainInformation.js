@@ -5,11 +5,13 @@ import SearchOverlay from "../SearchOverlay/SearchOverlay"
 //functions
 import {calculateTemp} from "../../functions/calculateTemp";
 import { converDate } from "../../functions/converDate";
+import { getPhotosUrl } from "../../functions/photosURL";
 
 import { MainInformationStyled } from "./mainIformationStyling"
 import {BiCurrentLocation} from "@react-icons/all-files/bi/BiCurrentLocation"
 
-import weather from '../../resources/images/Snow.png'
+
+
 function MainInformation(props){
     const deafulComponentState = false
     const [isSearchComponent,setIsSearchComponent] = React.useState(deafulComponentState)
@@ -18,12 +20,20 @@ function MainInformation(props){
         setIsSearchComponent(prevState => !prevState)
     }
 
+    //dates
     const currentTime = new Date();
     const currentDayWeek = currentTime.getDay()
     const currentDayMonth = currentTime.getDate()
     const currentMonth = currentTime.getMonth()
     
+    //for weather Photo
+    const [currentWeather, setCurrentWeather] = React.useState('Clear')
 
+    React.useEffect(()=>{
+        if(props.todayForcast.weather !== undefined){
+            setCurrentWeather(props.todayForcast.weather[0].main)
+        }
+    }, [props.todayForcast.weather])
 
     return(
         <MainInformationStyled>
@@ -38,7 +48,7 @@ function MainInformation(props){
                     <button className="container__locationInputDiv--roundedButton"><BiCurrentLocation/></button>
                 </div>
                 <div className="container--imageContainer">
-                    <img alt="weatherImage" src={weather}></img>
+                    <img alt="weatherImage" src={getPhotosUrl(currentWeather)}></img>
                 </div>
 
                 <div className="container--information">

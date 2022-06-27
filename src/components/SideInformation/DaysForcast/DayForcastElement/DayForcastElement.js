@@ -1,14 +1,14 @@
 import React from "react";
 
 import { DayForcastElementStyled} from "./dayForcastElementStyling";
-import image from "../../../../resources/images/Clear.png"
 
 //functions
 import { calculateTemp } from "../../../../functions/calculateTemp";
+import {getPhotosUrl} from "../../../../functions/photosURL" 
 
 import {converDate} from "../../../../functions/converDate";
 function TodayHighlightsElement(props){
-
+    //time and date
     const unixTime = props.infoElement.dt;
     const date = new Date(unixTime*1000);
 
@@ -16,12 +16,21 @@ function TodayHighlightsElement(props){
     const dayOfMonth = date.getDate()
     const month = date.getMonth()
 
+    //weather photo 
+
+    const [currentWeather, setCurrentWeather] = React.useState('Clear')
+
+    React.useEffect(()=>{
+        if(props.infoElement.weather !== undefined){
+            setCurrentWeather(props.infoElement.weather[0].main)
+        }
+    }, [props.infoElement.weather])
 
     return(
         <DayForcastElementStyled>
             <h4>{(`${converDate("day",dayOfWeek)}, ${dayOfMonth} ${converDate("month",month)}`)}</h4>
             {<div className="imgContainer">
-                <img alt ="weather icon" src={image}></img>
+                <img alt ="weather icon" src={getPhotosUrl(currentWeather)}></img>
             </div>}
             {props.infoElement.main !== undefined ? <div className="tempretureInfo">
                 <h4>{`${calculateTemp(props.degreInfo,props.infoElement.main.temp)}${props.degreInfo === "celcius" ? "℃":"°F"}`}</h4>

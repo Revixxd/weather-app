@@ -29,7 +29,10 @@ function SideInformation(props){
                     <button onClick={setCelciousDegree} className = {props.degreInfo === "celcius" ? 'buttonSelected':''}>C°</button>
                     <button onClick={setFahrenheitDegree} className = {props.degreInfo === "fahrenheit" ? 'buttonSelected':''}>F°</button>
                 </div>
-                <TodaysHighlights degreInfo = {props.degreInfo} daysForcast = {props.daysForcast}/>
+                <TodaysHighlights 
+                    degreInfo = {props.degreInfo} 
+                    daysForcast = {props.daysForcast}
+                />
                 <DayWeatherInfo todayForcast = {props.todayForcast}/>
                 <footer>
                     <span> <a href="https://github.com/Revixxd" rel="noreferrer" target="_blank" class="profileName">Created by 
