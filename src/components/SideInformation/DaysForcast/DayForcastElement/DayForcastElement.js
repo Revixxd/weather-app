@@ -7,6 +7,7 @@ import image from "../../../../resources/images/Clear.png"
 import { calculateTemp } from "../../../../functions/calculateTemp";
 import { converDate } from "../../../../functions/converDate";
 function TodayHighlightsElement(props){
+
     const unixTime = props.infoElement.dt;
     const date = new Date(unixTime*1000);
 
@@ -18,7 +19,6 @@ function TodayHighlightsElement(props){
     return(
         <DayForcastElementStyled>
             <h4>{(`${converDate("day",dayOfWeek)}, ${dayOfMonth} ${converDate("month",month)}`)}</h4>
-            {/* <h4>{(`${dayOfWeek} ${dayOfMonth},${month}`)}</h4> */}
             {<div className="imgContainer">
                 <img alt ="weather icon" src={image}></img>
             </div>}
