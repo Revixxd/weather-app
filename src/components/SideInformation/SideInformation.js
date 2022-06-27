@@ -20,9 +20,9 @@ function SideInformation(props){
             setDegreInfo("fahrenheit")
             console.log("fahrenheit")
         }
-        
-
+    
     }
+
 
     return(
         <SideInformationStyled>

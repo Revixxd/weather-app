@@ -32,6 +32,7 @@ function MainInformation(props){
             {isSearchComponent && <SearchOverlay 
             changeCity = {props.changeCity} 
             searchCity = {props.searchCity} 
+            errorSearch = {props.errorSearch} 
             handleClick = {changeSearchState}/>}
             <div className="container">
                 <div className="container--locationInputDiv">

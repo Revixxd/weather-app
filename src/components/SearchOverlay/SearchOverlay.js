@@ -2,26 +2,30 @@ import React from "react";
 
 import { StyledSearchOverlay } from "./searchOverlayStyling";
 
-function SearchOverlay(props){ 
+function SearchOverlay(props){
+    console.log(props.errorSearch)
+
     const [tempSearch, setCurrentSearch] = React.useState('')
     const handleClick = event => {
         props.changeCity(tempSearch)
-
         event.preventDefault();
-        //to turn off layout
         props.handleClick()
+
     };
+
+
 
     return(
         <StyledSearchOverlay>
             <div className="styledSearchOverlay--formDiv">
                 <form onSubmit = {handleClick}>
                     <input 
-                        className="form-inputElement" 
-                        placeholder="search location"
+                        // className= {`form-inputElement ${props.errorSearch ? "test":""}`} 
+                        className= {`form-inputElement ${props.errorSearch ? "test":""}`} 
+                        placeholder="Search location"
                         type="text"
                         value={tempSearch}
-                        onChange={event => setCurrentSearch(event.target.value)}
+                        onChange={event => (setCurrentSearch(event.target.value))}
                     />
                     <button 
                         className="form-buttonElement"

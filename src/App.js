@@ -30,10 +30,28 @@ function App() {
 
   const url = `https://api.openweathermap.org/data/2.5/forecast?q=${searchCity}&appid=410e713617c25eb9e018ecafd290e053`
 
-
+  const [errorSearch, setErrorSearch] = React.useState(false)
   React.useEffect(()=>{
-    axios.get(url).then((response) => {
+    axios
+    .get(url)
+    .then((response) => {
       setData(response.data)
+    })
+    .catch(err => {
+      if (err.response) {
+        // console.log(err.response.status);
+        if(err.response.status === 404){
+          console.log("ERROR")
+          setErrorSearch(true)
+        }else{
+          setErrorSearch(false)
+
+        }
+        // console.log(err.response.statusText);
+        // console.log(err.message);
+        // console.log(err.response.headers); 
+        // console.log(err.response.data); 
+      }
     })
   }, [url])
 
@@ -53,8 +71,12 @@ function App() {
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <GlobalStyles/>
       <StyledApp>
-          {/* dodac tylko ze pierwszy element list zostanie przeslany do mainInformation */}
-          <MainInformation searchCity = {searchCity} changeCity = {setSearchCity} cityInfo = {cityInfo} todayForcast = {todayForcast}/>
+          <MainInformation searchCity = {searchCity} 
+          changeCity = {setSearchCity} 
+          cityInfo = {cityInfo} 
+          todayForcast = {todayForcast}
+          errorSearch = {errorSearch}
+          />
           <SideInformation todayForcast = {todayForcast} daysForcast={daysForcast}/>
       </StyledApp>
     </ThemeProvider>
