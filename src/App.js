@@ -64,7 +64,7 @@ function App() {
       setDaysForcast(getForcastDays(data.list, todayForcast))
     }
     // setSearchCity('')
-  }, [data])
+  }, [data, todayForcast])
 
   
 

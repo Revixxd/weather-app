@@ -13,10 +13,10 @@ export function getForcastDays(array, todayData){
             array.map((element) => {
                 if(element.dt === date){
                     returnArray.push(element)
-                }else{
-
                 }
+                return returnArray
             })
+            return returnArray
         })
     return returnArray
     }else{
