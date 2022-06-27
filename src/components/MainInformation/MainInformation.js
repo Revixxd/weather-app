@@ -47,7 +47,7 @@ function MainInformation(props){
                 <div className="container--information">
                     <div className="container__information--temperaturediv">
                         {props.todayForcast.main === undefined ? <h6>ISLOADING</h6> : <h1>{calculateTemp(props.degreInfo, props.todayForcast.main.temp)}</h1>}
-                        <h3>℃</h3>
+                        <h3>{props.degreInfo === "celcius" ? "℃":"°F"}  </h3>
                     </div>
                     {props.todayForcast.weather === undefined ? <h3>ISLOADING</h3> : <h3>{props.todayForcast.weather[0].main}</h3>}
                 </div>
