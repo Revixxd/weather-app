@@ -70,14 +70,6 @@ function App() {
   //temperature change set
   const [degreInfo, setDegreInfo] = React.useState("celcius")
   
-  function calculateTemp(temperature){
-    if(degreInfo === "celcius"){
-      return Math.round(temperature - 273.1)
-    }else{
-      return Math.round((((temperature - 273.1) *9) /5) +32)
-    }
-  }
-
   
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
@@ -89,7 +81,7 @@ function App() {
           cityInfo = {cityInfo} 
           todayForcast = {todayForcast}
           errorSearch = {errorSearch}
-          calculateTemp = {calculateTemp}
+          degreInfo = {degreInfo}
           />
           <SideInformation 
           degreInfo = {degreInfo}
