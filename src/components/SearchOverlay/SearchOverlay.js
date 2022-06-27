@@ -2,6 +2,7 @@ import React from "react";
 
 import { StyledSearchOverlay } from "./searchOverlayStyling";
 
+
 function SearchOverlay(props){
     console.log(props.errorSearch)
 

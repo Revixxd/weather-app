@@ -36,6 +36,7 @@ function App() {
     .get(url)
     .then((response) => {
       setData(response.data)
+      
     })
     .catch(err => {
       if (err.response) {
@@ -61,23 +62,33 @@ function App() {
     if(data.list !== undefined){
       setDaysForcast(data.list.slice(0, 5))
       setTodayForcast(data.list[0])
+      
     }
     // setSearchCity('')
   }, [data])
 
-
+  //temperature change set
+  const [degreInfo, setDegreInfo] = React.useState("celcius")
+  
   
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <GlobalStyles/>
       <StyledApp>
-          <MainInformation searchCity = {searchCity} 
+          <MainInformation 
+          searchCity = {searchCity} 
           changeCity = {setSearchCity} 
           cityInfo = {cityInfo} 
           todayForcast = {todayForcast}
           errorSearch = {errorSearch}
+          degreInfo = {degreInfo}
           />
-          <SideInformation todayForcast = {todayForcast} daysForcast={daysForcast}/>
+          <SideInformation 
+          degreInfo = {degreInfo}
+          setDegreInfo = {setDegreInfo}
+          todayForcast = {todayForcast} 
+          daysForcast={daysForcast}
+          />
       </StyledApp>
     </ThemeProvider>
   );

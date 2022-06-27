@@ -7,18 +7,16 @@ import { SideInformationStyled } from "./sideInformationStyling"
 
 function SideInformation(props){
 
-    const [degreInfo, setDegreInfo] = React.useState("celcius")
+    
 
     function setCelciousDegree(){
-        if(degreInfo !== "celcius"){
-            setDegreInfo("celcius")
-            console.log("celcius")
+        if(props.degreInfo !== "celcius"){
+            props.setDegreInfo("celcius")
         }
     }
     function setFahrenheitDegree(){
-        if(degreInfo !== "fahrenheit"){
-            setDegreInfo("fahrenheit")
-            console.log("fahrenheit")
+        if(props.degreInfo !== "fahrenheit"){
+            props.setDegreInfo("fahrenheit")
         }
     
     }
@@ -29,14 +27,14 @@ function SideInformation(props){
             <div className="SideInformationStyled--container">
 
                 <div className="SideInformationStyled__container--temperatureChooseDiv">
-                    <button onClick={setCelciousDegree} className = {degreInfo === "celcius" ? 'buttonSelected':''}>C°</button>
-                    <button onClick={setFahrenheitDegree} className = {degreInfo === "fahrenheit" ? 'buttonSelected':''}>F°</button>
+                    <button onClick={setCelciousDegree} className = {props.degreInfo === "celcius" ? 'buttonSelected':''}>C°</button>
+                    <button onClick={setFahrenheitDegree} className = {props.degreInfo === "fahrenheit" ? 'buttonSelected':''}>F°</button>
                 </div>
-                <TodaysHighlights daysForcast = {props.daysForcast}/>
+                <TodaysHighlights degreInfo = {props.degreInfo} daysForcast = {props.daysForcast}/>
                 <DayWeatherInfo todayForcast = {props.todayForcast}/>
                 <footer>
                     <span> <a href="https://github.com/Revixxd" rel="noreferrer" target="_blank" class="profileName">Created by 
-                    <u> Revixxd</u></a></span> - <span><a href="https://devchallenges.io"
+                    <u> Revixxd</u></a></span> <span><a href="https://devchallenges.io"
                 target="_blank" rel="noreferrer">devChallenges.io</a></span>
                 </footer>
 
