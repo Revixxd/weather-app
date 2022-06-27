@@ -1,4 +1,5 @@
 import React from "react";
+import axios from 'axios';
 
 //global styles
 import { GlobalStyles } from "./components/styling/globalStyles";
@@ -8,10 +9,9 @@ import { ThemeProvider } from "styled-components";
 import {lightTheme, darkTheme} from "./components/styling/themes"
 //components
 import SideInformation from "./components/SideInformation/SideInformation";
-
 import MainInformation from "./components/MainInformation/MainInformation"
-
-import axios from 'axios';
+//functions
+import { getForcastDays } from "./functions/getForcastDays";
 function App() {
 
   //darkMode functions 
@@ -36,7 +36,6 @@ function App() {
     .get(url)
     .then((response) => {
       setData(response.data)
-      
     })
     .catch(err => {
       if (err.response) {
@@ -66,6 +65,10 @@ function App() {
     }
     // setSearchCity('')
   }, [data])
+
+
+  getForcastDays(data.list)
+
 
   //temperature change set
   const [degreInfo, setDegreInfo] = React.useState("celcius")
