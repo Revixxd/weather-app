@@ -7,4 +7,5 @@ To do
 - local storage to save cities
 
 ~~change photo of weather depend on current weather~~
+<br>
 ~~button temperature functionality~~
