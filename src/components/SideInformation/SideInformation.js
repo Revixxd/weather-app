@@ -7,7 +7,6 @@ import { SideInformationStyled } from "./sideInformationStyling"
 
 function SideInformation(props){
 
-    
 
     function setCelciousDegree(){
         if(props.degreInfo !== "celcius"){

@@ -89,13 +89,6 @@ function App() {
           todayForcast = {todayForcast} 
           daysForcast={daysForcast}
           />
-<<<<<<< Updated upstream
-=======
-          <SideInformation 
-          todayForcast={todayForcast} 
-          daysForcast={daysForcast}
-          />
->>>>>>> Stashed changes
       </StyledApp>
     </ThemeProvider>
   );
