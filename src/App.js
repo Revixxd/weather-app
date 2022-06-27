@@ -67,7 +67,7 @@ function App() {
   }, [data])
 
 
-  getForcastDays(data.list)
+  console.log(getForcastDays(data.list, todayForcast ))
 
 
   //temperature change set
