@@ -23,8 +23,8 @@ function TodayHighlightsElement(props){
                 <img alt ="weather icon" src={image}></img>
             </div>}
             {props.infoElement.main !== undefined ? <div className="tempretureInfo">
-                <h4>{calculateTemp(props.degreInfo,props.infoElement.main.temp)}°</h4>
-                <h5>{calculateTemp(props.degreInfo,props.infoElement.main.feels_like)}°</h5>
+                <h4>{`${calculateTemp(props.degreInfo,props.infoElement.main.temp)}${props.degreInfo === "celcius" ? "℃":"°F"}`}</h4>
+                <h5>{`${calculateTemp(props.degreInfo,props.infoElement.main.feels_like)}${props.degreInfo === "celcius" ? "℃":"°F"}`}</h5>
             </div> : <h5>Loading</h5>}    
         </DayForcastElementStyled>
     )
