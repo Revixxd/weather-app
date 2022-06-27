@@ -2,7 +2,9 @@ import React from "react"
 
 import SearchOverlay from "../SearchOverlay/SearchOverlay"
 
+//functions
 import {calculateTemp} from "../../functions/calculateTemp";
+import { converDate } from "../../functions/converDate";
 
 import { MainInformationStyled } from "./mainIformationStyling"
 import {BiCurrentLocation} from "@react-icons/all-files/bi/BiCurrentLocation"
@@ -17,15 +19,10 @@ function MainInformation(props){
     }
 
     const currentTime = new Date();
-    const currentDay = currentTime.getDate()
-    const currentDayName = currentTime.getDay()
+    const currentDayWeek = currentTime.getDay()
+    const currentDayMonth = currentTime.getDate()
     const currentMonth = currentTime.getMonth()
-
-
-    const monthNames = ["January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"];
-    const dayNames = ["Sun","Mon", "Tue", "Wed", "Thu", "Fri", "Sat",
-    ];
+    
 
 
     return(
@@ -56,7 +53,7 @@ function MainInformation(props){
 
                     <div className="container__footer--dateDiv">
                         <h6>Today</h6>
-                        <h6> {`${dayNames[currentDayName]}, ${currentDay} ${monthNames[currentMonth]}`}</h6>
+                        <h6>{`${converDate("day", currentDayWeek)}, ${currentDayMonth} ${converDate("month", currentMonth)}`}</h6>
 
                     </div>
                     <div>

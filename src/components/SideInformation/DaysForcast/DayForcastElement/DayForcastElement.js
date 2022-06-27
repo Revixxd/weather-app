@@ -13,7 +13,6 @@ function TodayHighlightsElement(props){
     const dayOfMonth = date.getDate()
     const month = date.getMonth()
 
-    console.log(dayOfMonth)
 
     return(
         <DayForcastElementStyled>
