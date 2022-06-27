@@ -5,7 +5,8 @@ import image from "../../../../resources/images/Clear.png"
 
 //functions
 import { calculateTemp } from "../../../../functions/calculateTemp";
-import { converDate } from "../../../../functions/converDate";
+
+import {converDate} from "../../../../functions/converDate";
 function TodayHighlightsElement(props){
 
     const unixTime = props.infoElement.dt;
