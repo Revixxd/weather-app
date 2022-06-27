@@ -4,7 +4,7 @@ To do
 - theme accesability 
 - button location
 - loading on components (with animation)
-- local storage to save cities 
-- change photo of weather depend on current weather
+- local storage to save cities
 
+~~change photo of weather depend on current weather~~
 ~~button temperature functionality~~
