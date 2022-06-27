@@ -10,8 +10,9 @@ import {lightTheme, darkTheme} from "./components/styling/themes"
 //components
 import SideInformation from "./components/SideInformation/SideInformation";
 import MainInformation from "./components/MainInformation/MainInformation"
-//functions
+
 import { getForcastDays } from "./functions/getForcastDays";
+
 function App() {
 
   //darkMode functions 
@@ -45,7 +46,7 @@ function App() {
           setErrorSearch(true)
         }else{
           setErrorSearch(false)
-
+          
         }
         // console.log(err.response.statusText);
         // console.log(err.message);
@@ -59,15 +60,13 @@ function App() {
   React.useEffect(()=>{
     setCityInfo(data.city)
     if(data.list !== undefined){
-      setDaysForcast(data.list.slice(0, 5))
       setTodayForcast(data.list[0])
-      
+      setDaysForcast(getForcastDays(data.list, todayForcast))
     }
     // setSearchCity('')
   }, [data])
 
-
-  console.log(getForcastDays(data.list, todayForcast ))
+  
 
 
   //temperature change set

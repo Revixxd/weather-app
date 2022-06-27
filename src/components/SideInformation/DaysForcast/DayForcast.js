@@ -4,6 +4,8 @@ import TodayHighlightsElement from "./DayForcastElement/DayForcastElement";
 
 import { DayForcastStyling } from "./dayForcastStyling";
 
+
+
 function TodaysHighlights(props){
     const elementsOfForcast = props.daysForcast.map((element, i) =>{
         return(

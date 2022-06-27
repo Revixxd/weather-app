@@ -1,30 +1,25 @@
 export function getForcastDays(array, todayData){
     if(array !== undefined){
-        console.log(array)
         const firstDate = (todayData.dt) - 10800
         const oneDayTime = 86400
         const dates = [firstDate]
+        const returnArray = []
 
         for(var i = 0; i < 5; i++){
             dates.push(dates[i] + oneDayTime)
         }
-
-        const tempset = new Set()
         
         dates.map(date =>{
             array.map((element) => {
-                if(element.dt == date){
-                    tempset.add(element)
+                if(element.dt === date){
+                    returnArray.push(element)
                 }else{
 
                 }
             })
         })
-    return tempset
+    return returnArray
     }else{
         return
     }
-
 }
-
-// 2022-06-30
