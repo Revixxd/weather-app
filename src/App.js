@@ -70,23 +70,12 @@ function App() {
     // setSearchCity('')
   }, [data, todayForcast])
 
-  
-  
-  
   //temperature change set
   const [degreInfo, setDegreInfo] = React.useState("celcius")
   
-  //location 
-  const [coord, setCoord] =React.useState([])
-    
+  // for locaton
 
-  React.useEffect(()=>{
-    // console.log(coord)
-    if(coord.length !== 0 ){
-      setUrlState("cord")
-    }
-  },[coord])
-  
+  const [cords, setCoord] = React.useState([])
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <GlobalStyles/>
@@ -98,7 +87,6 @@ function App() {
           todayForcast = {todayForcast}
           errorSearch = {errorSearch}
           degreInfo = {degreInfo}
-          
           setCoord = {setCoord}
           setUrlState = {setUrlState}
           />

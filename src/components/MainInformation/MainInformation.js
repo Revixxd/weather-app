@@ -39,9 +39,7 @@ function MainInformation(props){
         }
     }, [props.todayForcast.weather])
 
-    //for location
-    
-    
+    //for locatioc
 
     function getCoords(){
         props.setUrlState(coordUrl)
@@ -54,7 +52,9 @@ function MainInformation(props){
             changeCity = {props.changeCity} 
             searchCity = {props.searchCity} 
             errorSearch = {props.errorSearch} 
-            handleClick = {changeSearchState}/>}
+            handleClick = {changeSearchState}
+            setUrlState = {props.setUrlState}
+            />}
             <div className="container">
                 <div className="container--locationInputDiv">
                     <button onClick={changeSearchState}>Search for places</button>
