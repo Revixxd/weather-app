@@ -15,8 +15,6 @@ function SearchOverlay(props){
         props.setUrlState(cityUrl(tempSearch))
     };
 
-
-
     return(
         <StyledSearchOverlay>
             <div className="styledSearchOverlay--formDiv">
