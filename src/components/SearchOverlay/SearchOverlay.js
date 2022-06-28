@@ -12,7 +12,7 @@ function SearchOverlay(props){
         props.changeCity(tempSearch)
         event.preventDefault();
         props.handleClick()
-        props.setUrlState(cityUrl)
+        props.setUrlState(cityUrl(tempSearch))
     };
 
 
