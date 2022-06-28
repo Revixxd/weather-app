@@ -6,6 +6,10 @@ import SearchOverlay from "../SearchOverlay/SearchOverlay"
 import {calculateTemp} from "../../functions/calculateTemp";
 import { converDate } from "../../functions/converDate";
 import { getPhotosUrl } from "../../functions/photosURL";
+import { getCurrentLocation } from "../../functions/getCurrentLocation";
+
+//data
+import { coordUrl } from "../../functions/url";
 
 import { MainInformationStyled } from "./mainIformationStyling"
 import {BiCurrentLocation} from "@react-icons/all-files/bi/BiCurrentLocation"
@@ -35,6 +39,15 @@ function MainInformation(props){
         }
     }, [props.todayForcast.weather])
 
+    //for location
+    
+    
+
+    function getCoords(){
+        props.setUrlState(coordUrl)
+        props.setCoord(getCurrentLocation())
+    }
+
     return(
         <MainInformationStyled>
             {isSearchComponent && <SearchOverlay 
@@ -45,7 +58,10 @@ function MainInformation(props){
             <div className="container">
                 <div className="container--locationInputDiv">
                     <button onClick={changeSearchState}>Search for places</button>
-                    <button className="container__locationInputDiv--roundedButton"><BiCurrentLocation/></button>
+                    <button 
+                    className="container__locationInputDiv--roundedButton"
+                    onClick={() =>  getCoords() }
+                    ><BiCurrentLocation/></button>
                 </div>
                 <div className="container--imageContainer">
                     <img alt="weatherImage" src={getPhotosUrl(currentWeather)}></img>

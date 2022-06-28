@@ -1,4 +1,4 @@
-export function locate() {
+export function getCurrentLocation() {
     const coord = new Array()
     const options = {
         enableHighAccuracy: true,
