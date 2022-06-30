@@ -34,7 +34,6 @@ function App() {
   const [searchCity, setSearchCity] = React.useState("warsaw")
   
   const [urlState, setUrlState] = React.useState(cityUrl)
-  console.log(urlState)
   
   const [errorSearch, setErrorSearch] = React.useState(false)
   React.useEffect(()=>{
@@ -76,6 +75,7 @@ function App() {
   // for locaton
 
   const [cords, setCoord] = React.useState([])
+
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <GlobalStyles/>
@@ -89,6 +89,7 @@ function App() {
           degreInfo = {degreInfo}
           setCoord = {setCoord}
           setUrlState = {setUrlState}
+          cords = {cords}
           />
           <SideInformation 
           degreInfo = {degreInfo}

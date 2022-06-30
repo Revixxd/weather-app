@@ -42,8 +42,9 @@ function MainInformation(props){
     //for locatioc
 
     function getCoords(){
-        props.setUrlState(coordUrl)
         props.setCoord(getCurrentLocation())
+        props.setUrlState(coordUrl(props.cords))
+        console.log(props.cords)
     }
 
     return(
