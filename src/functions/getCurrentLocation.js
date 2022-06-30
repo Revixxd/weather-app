@@ -1,4 +1,4 @@
-export function getCurrentLocation() {
+export function getCurrentLocation(callback) {
     const coord = new Array()
     const options = {
         enableHighAccuracy: true,

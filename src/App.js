@@ -70,19 +70,20 @@ function App() {
     // setSearchCity('')
   }, [data, todayForcast])
 
-  //temperature change set
+  //temperature definition
   const [degreInfo, setDegreInfo] = React.useState("celcius")
   
   // for location 
-
   const [cords, setCoord] = React.useState([])
 
-    function getCoords(){
+    async function getCoords(){
         setCoord(getCurrentLocation())
         setUrlState(coordUrl(cords))
     }
 
+    //on load
     React.useEffect(() => {
+      //ask use for location permision 
       getCoords();
     }, []);
   return (
