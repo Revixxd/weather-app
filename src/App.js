@@ -13,8 +13,9 @@ import MainInformation from "./components/MainInformation/MainInformation"
 
 //function
 import { getForcastDays } from "./functions/getForcastDays";
+import { getCurrentLocation } from "./functions/getCurrentLocation";
 
-//data
+//data for location 
 import { cityUrl, coordUrl } from "./functions/url";
 
 function App() {
@@ -72,10 +73,18 @@ function App() {
   //temperature change set
   const [degreInfo, setDegreInfo] = React.useState("celcius")
   
-  // for locaton
+  // for location 
 
   const [cords, setCoord] = React.useState([])
 
+    function getCoords(){
+        setCoord(getCurrentLocation())
+        setUrlState(coordUrl(cords))
+    }
+
+    React.useEffect(() => {
+      getCoords();
+    }, []);
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <GlobalStyles/>
@@ -87,9 +96,8 @@ function App() {
           todayForcast = {todayForcast}
           errorSearch = {errorSearch}
           degreInfo = {degreInfo}
-          setCoord = {setCoord}
           setUrlState = {setUrlState}
-          cords = {cords}
+          getCoords ={getCoords}
           />
           <SideInformation 
           degreInfo = {degreInfo}
