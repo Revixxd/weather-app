@@ -9,6 +9,7 @@ React weather app made with funcional component and open Weather Api
 - theme accesability 
 - loading on components (with animation)
 - local storage to save cities
+- hide api key
 
 
 ## Bugs:
