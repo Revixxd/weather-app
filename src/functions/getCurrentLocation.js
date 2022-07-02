@@ -1,4 +1,5 @@
 export function getCurrentLocation() {
+    
     const coord = []
     const options = {
         enableHighAccuracy: true,
@@ -16,7 +17,8 @@ export function getCurrentLocation() {
         // console.log(`Longitude: ${crd.longitude}`);
         // console.log(`More or less ${crd.accuracy} meters.`);
         // console.log(coord)
-        
+        console.log(coord)
+        return coord
     }
 
     function error(err) {
@@ -25,6 +27,6 @@ export function getCurrentLocation() {
     }
 
     navigator.geolocation.getCurrentPosition(success, error, options);
-    return coord
+    
 
 }
