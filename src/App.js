@@ -56,7 +56,6 @@ function App() {
 
     function getCoords(){
         setCoord(getCurrentLocation())
-        console.log(urlState)
         setUrlState(coordUrl(cords))
     }
 

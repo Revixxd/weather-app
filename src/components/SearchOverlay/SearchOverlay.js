@@ -5,7 +5,6 @@ import { StyledSearchOverlay } from "./searchOverlayStyling";
 import { cityUrl } from "../../functions/url";
 
 function SearchOverlay(props){
-    console.log(props.errorSearch)
 
     const [tempSearch, setCurrentSearch] = React.useState('')
     const handleClick = event => {

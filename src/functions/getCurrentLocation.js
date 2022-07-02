@@ -16,7 +16,6 @@ export function getCurrentLocation() {
         // console.log(`Longitude: ${crd.longitude}`);
         // console.log(`More or less ${crd.accuracy} meters.`);
         // console.log(coord)
-        console.log(coord)
         return coord
     }
 
