@@ -76,16 +76,16 @@ function App() {
   // for location 
   const [cords, setCoord] = React.useState([])
 
-    async function getCoords(){
+    function getCoords(){
         setCoord(getCurrentLocation())
         setUrlState(coordUrl(cords))
     }
 
     //on load
-    React.useEffect(() => {
-      //ask use for location permision 
-      getCoords();
-    }, []);
+    // React.useEffect(() => {
+    //   //ask use for location permision 
+    //   getCoords();
+    // }, []);
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <GlobalStyles/>

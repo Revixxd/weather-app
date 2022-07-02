@@ -1,5 +1,5 @@
-export function getCurrentLocation(callback) {
-    const coord = new Array()
+export function getCurrentLocation() {
+    const coord = []
     const options = {
         enableHighAccuracy: true,
         timeout: 5000,
