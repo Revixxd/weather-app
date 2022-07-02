@@ -3,7 +3,8 @@ import styled from "styled-components";
 import {elementBackGround} from "../../../styling/themes" 
 
 export const DayForcastElementStyled = styled.div`
-    width: 120px;
+    width: 100%;
+    max-width: 120px;
     height: 180px;
     display: flex;
     flex-direction: column;

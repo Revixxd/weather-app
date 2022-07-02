@@ -18,7 +18,7 @@ export const SideInformationStyled = styled.div`
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-
+        gap: 1.5rem;
     }
 
     .SideInformationStyled__container--temperatureChooseDiv{
