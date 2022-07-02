@@ -45,7 +45,7 @@ function MainInformation(props){
             <div className="container">
                 <div className="container--locationInputDiv">
                     <button onClick={changeSearchState}>Search for places</button>
-                    <button className="container__locationInputDiv--roundedButton"><BiCurrentLocation/></button>
+                    {/* <button className="container__locationInputDiv--roundedButton"><BiCurrentLocation/></button> */}
                 </div>
                 <div className="container--imageContainer">
                     <img alt="weatherImage" src={getPhotosUrl(currentWeather)}></img>

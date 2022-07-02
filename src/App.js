@@ -67,8 +67,6 @@ function App() {
   }, [data, todayForcast])
 
   
-
-
   //temperature change set
   const [degreInfo, setDegreInfo] = React.useState("celcius")
   
