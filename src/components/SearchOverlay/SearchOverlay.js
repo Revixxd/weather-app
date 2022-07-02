@@ -2,6 +2,7 @@ import React from "react";
 
 import { StyledSearchOverlay } from "./searchOverlayStyling";
 
+import { cityUrl } from "../../functions/url";
 
 function SearchOverlay(props){
     console.log(props.errorSearch)
@@ -11,10 +12,8 @@ function SearchOverlay(props){
         props.changeCity(tempSearch)
         event.preventDefault();
         props.handleClick()
-
+        props.setUrlState(cityUrl(tempSearch))
     };
-
-
 
     return(
         <StyledSearchOverlay>

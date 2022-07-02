@@ -11,7 +11,12 @@ import {lightTheme, darkTheme} from "./components/styling/themes"
 import SideInformation from "./components/SideInformation/SideInformation";
 import MainInformation from "./components/MainInformation/MainInformation"
 
+//function
 import { getForcastDays } from "./functions/getForcastDays";
+import { getCurrentLocation } from "./functions/getCurrentLocation";
+
+//data for location 
+import { cityUrl, coordUrl } from "./functions/url";
 
 function App() {
 
@@ -27,35 +32,12 @@ function App() {
   const [daysForcast, setDaysForcast] = React.useState([])
   const [todayForcast, setTodayForcast] = React.useState({})
 
-  const [searchCity, setSearchCity] = React.useState("warszawa")
-
-  const url = `https://api.openweathermap.org/data/2.5/forecast?q=${searchCity}&appid=410e713617c25eb9e018ecafd290e053`
-
+  const [searchCity, setSearchCity] = React.useState("warsaw")
+  
+  const [urlState, setUrlState] = React.useState(cityUrl)
+  
   const [errorSearch, setErrorSearch] = React.useState(false)
-  React.useEffect(()=>{
-    axios
-    .get(url)
-    .then((response) => {
-      setData(response.data)
-    })
-    .catch(err => {
-      if (err.response) {
-        // console.log(err.response.status);
-        if(err.response.status === 404){
-          console.log("ERROR")
-          setErrorSearch(true)
-        }else{
-          setErrorSearch(false)
-          
-        }
-        // console.log(err.response.statusText);
-        // console.log(err.message);
-        // console.log(err.response.headers); 
-        // console.log(err.response.data); 
-      }
-    })
-  }, [url])
-
+  
 
   React.useEffect(()=>{
     setCityInfo(data.city)
@@ -66,11 +48,56 @@ function App() {
     // setSearchCity('')
   }, [data, todayForcast])
 
-  
-  //temperature change set
+  //temperature definition
   const [degreInfo, setDegreInfo] = React.useState("celcius")
-  
-  
+
+  // for location 
+  const [cords, setCoord] = React.useState([])
+
+    function getCoords(){
+        setCoord(getCurrentLocation())
+        console.log(urlState)
+        setUrlState(coordUrl(cords))
+    }
+
+    React.useEffect(()=>{
+      navigator.geolocation.getCurrentPosition(function(position) {
+        const crd = position.coords;
+        const coord = []
+        coord.push(crd.latitude)
+        coord.push(crd.longitude)
+        setCoord(coord)
+        setUrlState(coordUrl(coord))
+      }, function() {
+        console.log("deny")
+        setUrlState(cityUrl(searchCity))
+      });
+    }, [])
+
+    React.useEffect(()=>{
+      axios
+      .get(urlState)
+      .then((response) => {
+        setData(response.data)
+      })
+      .catch(err => {
+        if (err.response) {
+          // console.log(err.response.status);
+          if(err.response.status === 404){
+            console.log("ERROR")
+            setErrorSearch(true)
+          }else{
+            setErrorSearch(false)
+            
+          }
+          // console.log(err.response.statusText);
+          // console.log(err.message);
+          // console.log(err.response.headers); 
+          // console.log(err.response.data); 
+        }
+      })
+    }, [urlState])
+
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <GlobalStyles/>
@@ -82,6 +109,8 @@ function App() {
           todayForcast = {todayForcast}
           errorSearch = {errorSearch}
           degreInfo = {degreInfo}
+          setUrlState = {setUrlState}
+          getCoords ={getCoords}
           />
           <SideInformation 
           degreInfo = {degreInfo}

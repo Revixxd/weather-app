@@ -41,11 +41,17 @@ function MainInformation(props){
             changeCity = {props.changeCity} 
             searchCity = {props.searchCity} 
             errorSearch = {props.errorSearch} 
-            handleClick = {changeSearchState}/>}
+            handleClick = {changeSearchState}
+            setUrlState = {props.setUrlState}
+            />}
             <div className="container">
                 <div className="container--locationInputDiv">
                     <button onClick={changeSearchState}>Search for places</button>
-                    {/* <button className="container__locationInputDiv--roundedButton"><BiCurrentLocation/></button> */}
+                    <button 
+                    className="container__locationInputDiv--roundedButton"
+                    onClick={() =>  props.getCoords() }
+                    ><BiCurrentLocation/></button>
+
                 </div>
                 <div className="container--imageContainer">
                     <img alt="weatherImage" src={getPhotosUrl(currentWeather)}></img>
