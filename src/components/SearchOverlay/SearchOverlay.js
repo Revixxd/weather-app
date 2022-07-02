@@ -17,24 +17,23 @@ function SearchOverlay(props){
 
     return(
         <StyledSearchOverlay>
-            <div className="styledSearchOverlay--formDiv">
-                <form onSubmit = {handleClick}>
-                    <input 
-                        // className= {`form-inputElement ${props.errorSearch ? "test":""}`} 
-                        className= {`form-inputElement ${props.errorSearch ? "test":""}`} 
-                        placeholder="Search location"
-                        type="text"
-                        value={tempSearch}
-                        onChange={event => (setCurrentSearch(event.target.value))}
-                    />
-                    <button 
-                        className="form-buttonElement"
-                        type="submit"
-                        onClick={handleClick}
-                    >search</button>
-                </form>
-
-            </div>
+                <div className="styledSearchOverlay--formDiv">
+                    <form onSubmit = {handleClick}>
+                        <input
+                            // className= {`form-inputElement ${props.errorSearch ? "test":""}`}
+                            className= {`form-inputElement ${props.errorSearch ? "test":""}`}
+                            placeholder="Search location"
+                            type="text"
+                            value={tempSearch}
+                            onChange={event => (setCurrentSearch(event.target.value))}
+                        />
+                        <button
+                            className="form-buttonElement"
+                            type="submit"
+                            onClick={handleClick}
+                        >search</button>
+                    </form>
+                </div>
         </StyledSearchOverlay>
     )
 }
