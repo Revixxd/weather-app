@@ -9,7 +9,6 @@ export const cityUrl = (city)=>{
     }
 
 export const coordUrl = (array) => {
-    console.log(array)
     const lat = array[0]
     const lon = array[1]
     return(

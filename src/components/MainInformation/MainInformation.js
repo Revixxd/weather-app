@@ -35,10 +35,6 @@ function MainInformation(props){
         }
     }, [props.todayForcast.weather])
 
-    //for locatioc
-
-    
-
     return(
         <MainInformationStyled>
             {isSearchComponent && <SearchOverlay 

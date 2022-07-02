@@ -37,29 +37,7 @@ function App() {
   const [urlState, setUrlState] = React.useState(cityUrl)
   
   const [errorSearch, setErrorSearch] = React.useState(false)
-  React.useEffect(()=>{
-    axios
-    .get(urlState)
-    .then((response) => {
-      setData(response.data)
-    })
-    .catch(err => {
-      if (err.response) {
-        // console.log(err.response.status);
-        if(err.response.status === 404){
-          console.log("ERROR")
-          setErrorSearch(true)
-        }else{
-          setErrorSearch(false)
-          
-        }
-        // console.log(err.response.statusText);
-        // console.log(err.message);
-        // console.log(err.response.headers); 
-        // console.log(err.response.data); 
-      }
-    })
-  }, [urlState])
+  
 
   React.useEffect(()=>{
     setCityInfo(data.city)
@@ -81,11 +59,44 @@ function App() {
         setUrlState(coordUrl(cords))
     }
 
-    //on load
-    // React.useEffect(() => {
-    //   //ask use for location permision 
-    //   getCoords();
-    // }, []);
+    React.useEffect(()=>{
+      navigator.geolocation.getCurrentPosition(function(position) {
+        const crd = position.coords;
+        const coord = []
+        coord.push(crd.latitude)
+        coord.push(crd.longitude)
+        setCoord(coord)
+        setUrlState(coordUrl(coord))
+      }, function() {
+        console.log("deny")
+        setUrlState(cityUrl(searchCity))
+      });
+    }, [])
+
+    React.useEffect(()=>{
+      axios
+      .get(urlState)
+      .then((response) => {
+        setData(response.data)
+      })
+      .catch(err => {
+        if (err.response) {
+          // console.log(err.response.status);
+          if(err.response.status === 404){
+            console.log("ERROR")
+            setErrorSearch(true)
+          }else{
+            setErrorSearch(false)
+            
+          }
+          // console.log(err.response.statusText);
+          // console.log(err.message);
+          // console.log(err.response.headers); 
+          // console.log(err.response.data); 
+        }
+      })
+    }, [urlState])
+
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <GlobalStyles/>
