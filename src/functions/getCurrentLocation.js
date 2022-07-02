@@ -1,5 +1,4 @@
 export function getCurrentLocation() {
-    
     const coord = []
     const options = {
         enableHighAccuracy: true,
