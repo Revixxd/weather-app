@@ -60,7 +60,7 @@ function App() {
         setUrlState(coordUrl(cords))
     }
 
-    React.useEffect(()=>{
+    React.useEffect((searchCity)=>{
       navigator.geolocation.getCurrentPosition(function(position) {
         const crd = position.coords;
         const coord = []
