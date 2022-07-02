@@ -50,7 +50,7 @@ function App() {
 
   //temperature definition
   const [degreInfo, setDegreInfo] = React.useState("celcius")
-  
+
   // for location 
   const [cords, setCoord] = React.useState([])
 

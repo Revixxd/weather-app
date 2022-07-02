@@ -51,6 +51,7 @@ function MainInformation(props){
                     className="container__locationInputDiv--roundedButton"
                     onClick={() =>  props.getCoords() }
                     ><BiCurrentLocation/></button>
+
                 </div>
                 <div className="container--imageContainer">
                     <img alt="weatherImage" src={getPhotosUrl(currentWeather)}></img>
