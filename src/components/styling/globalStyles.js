@@ -28,6 +28,7 @@ export const GlobalStyles = createGlobalStyle`
             font-size: 8rem;
         }
         h2{
+            font-size: 3rem;
             font-weight: bold;
         }
         h3{

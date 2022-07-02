@@ -5,10 +5,10 @@ import {DayWeatherInfoStyled} from "./dayWeatherInfoStyling"
 function DayWeatherInfo(props){
     return(
         <DayWeatherInfoStyled>
-            <h2>Today’s Hightlights </h2>
+            <h3>Today’s Hightlights </h3>
             <div className="weekTemperature--container">
 
-                {props.todayForcast.wind !== undefined ? <div className="weekTemperature__container--element ">
+                {props.todayForcast.wind !== undefined ? <div className="weekTemperature__container--element weekTemperature__container__element--upperElement ">
                     <h4>Wind Status</h4>
                     <div className="weekTemperature__container__element--textContent">
                         <h2>{props.todayForcast.wind.speed}</h2>
@@ -16,7 +16,7 @@ function DayWeatherInfo(props){
                     </div>
                 </div> : <h5>loading</h5>}
 
-                {props.todayForcast.main !== undefined ? <div className="weekTemperature__container--element ">
+                {props.todayForcast.main !== undefined ? <div className="weekTemperature__container--element weekTemperature__container__element--upperElement">
                     <h4>Humidity</h4>
                     <div className="weekTemperature__container__element--textContent">
                         <h2>{props.todayForcast.main.humidity}</h2>

@@ -7,8 +7,8 @@ export const DayForcastStyling = styled.div`
     justify-content: center;
     gap: 1rem; */
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(120px,1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit,minmax(7rem,1fr));
+    gap: 0.75rem;
 
     justify-items: center;
 `

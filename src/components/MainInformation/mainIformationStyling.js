@@ -17,10 +17,16 @@ export const MainInformationStyled = styled.div`
     flex-direction: column;
 
     background-color: ${props => props.theme.bodyMainColor};
+    
+    button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
     .container{
         
-        height: 90%;
+        height: 95%;
         width: 80%;
         max-width: 400px;
 
@@ -36,14 +42,15 @@ export const MainInformationStyled = styled.div`
         justify-content: inherit;
     }
     .container--locationInputDiv svg{
-        font-size: 20px;
+        font-size: 25px;
     }
     .container--locationInputDiv button{
         cursor: pointer;
         color: ${props => props.theme.mainColor};
         background-color: ${props => props.theme.buttonBackground};
         border: none;
-        padding: 0.6em;
+        padding: 0.75em;
+        display: flex;
     }
     .container__locationInputDiv--roundedButton{
         display: block;
