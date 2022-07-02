@@ -69,7 +69,6 @@ function App() {
         setCoord(coord)
         setUrlState(coordUrl(coord))
       }, function() {
-        console.log("deny")
         setUrlState(cityUrl(searchCity))
       });
     }, [])
