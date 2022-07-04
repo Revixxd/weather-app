@@ -23,23 +23,23 @@ function SideInformation(props){
 
     return(
         <SideInformationStyled>
-            <div className="SideInformationStyled--container">
-
-                <div className="SideInformationStyled__container--temperatureChooseDiv">
-                    <button onClick={setCelciousDegree} className = {props.degreInfo === "celcius" ? 'buttonSelected':''}>C°</button>
-                    <button onClick={setFahrenheitDegree} className = {props.degreInfo === "fahrenheit" ? 'buttonSelected':''}>F°</button>
+            <div className="SideInformationStyled--position">
+                <div className="SideInformationStyled--container">
+                    <div className="SideInformationStyled__container--temperatureChooseDiv">
+                        <button onClick={setCelciousDegree} className = {props.degreInfo === "celcius" ? 'buttonSelected':''}>C°</button>
+                        <button onClick={setFahrenheitDegree} className = {props.degreInfo === "fahrenheit" ? 'buttonSelected':''}>F°</button>
+                    </div>
+                    <TodaysHighlights 
+                        degreInfo = {props.degreInfo} 
+                        daysForcast = {props.daysForcast}
+                    />
+                    <DayWeatherInfo todayForcast = {props.todayForcast}/>
+                    <div className="footer">
+                        <span> <a href="https://github.com/Revixxd" rel="noreferrer" target="_blank" class="profileName">Created by 
+                        <u> Revixxd</u></a></span> <span><a href="https://devchallenges.io"
+                    target="_blank" rel="noreferrer">devChallenges.io</a></span>
+                    </div>
                 </div>
-                <TodaysHighlights 
-                    degreInfo = {props.degreInfo} 
-                    daysForcast = {props.daysForcast}
-                />
-                <DayWeatherInfo todayForcast = {props.todayForcast}/>
-                <div className="footer">
-                    <span> <a href="https://github.com/Revixxd" rel="noreferrer" target="_blank" class="profileName">Created by 
-                    <u> Revixxd</u></a></span> <span><a href="https://devchallenges.io"
-                target="_blank" rel="noreferrer">devChallenges.io</a></span>
-                </div>
-
             </div>
         </SideInformationStyled>
     )

@@ -2,14 +2,19 @@ import styled from "styled-components";
 
 export const SideInformationStyled = styled.div`
     grid-column: span 2;
-    
-    height: 100vh;
 
     background-color: ${props => props.theme.bodySecondColor};
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+    display: block;
     
+    
+    .SideInformationStyled--position{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
     .SideInformationStyled--container{
         width: 90%;
         max-width: 750px;
@@ -18,7 +23,7 @@ export const SideInformationStyled = styled.div`
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        gap: 1.5rem;
+        gap: 30px;
     }
 
     .SideInformationStyled__container--temperatureChooseDiv{
