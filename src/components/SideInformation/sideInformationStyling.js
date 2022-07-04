@@ -41,10 +41,10 @@ export const SideInformationStyled = styled.div`
         background-color: ${props => props.theme.mainColor} !important ;
         color: ${props => props.theme.unselectedOption} !important;
     }
-    footer{
+    .footer{
         text-align: center;
     }
-    footer a, u{
+    .footer a, u{
     color: ${props => props.theme.secondColor};
     }
 
