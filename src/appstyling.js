@@ -6,4 +6,4 @@ export const StyledApp = styled.main`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr ));
 
-`
+    `
