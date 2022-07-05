@@ -2,22 +2,19 @@ import styled from "styled-components";
 
 export const SideInformationStyled = styled.div`
     grid-column: span 2;
-    
-    height: 100vh;
 
     background-color: ${props => props.theme.bodySecondColor};
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
     
     .SideInformationStyled--container{
+        margin: auto;
+        height: 100%;
         width: 90%;
         max-width: 750px;
-        height: 95%;
 
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: space-around;
         gap: 1.5rem;
     }
 
@@ -41,11 +38,12 @@ export const SideInformationStyled = styled.div`
         background-color: ${props => props.theme.mainColor} !important ;
         color: ${props => props.theme.unselectedOption} !important;
     }
-    footer{
+    .footer{
+        padding: 10px;
         text-align: center;
     }
-    footer a, u{
-    color: ${props => props.theme.secondColor};
+    .footer a, u{
+        color: ${props => props.theme.secondColor};
     }
 
 `
