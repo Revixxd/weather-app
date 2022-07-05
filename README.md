@@ -5,17 +5,21 @@ React weather app made with funcional component and open Weather Api
 ## Features
 
 - make more css styling for components (animation on search overlay component)
-- css fixes for mobile
+
 - theme accesability 
 - loading on components (with animation)
-- local storage to save cities
-- hide api key
+- local storage to save favorites cities
+
+- hide api key <- propel way to do it use some kind of backend response to fully hide it, api is free to use so its no matter if its showed or hide. Probably will be done in future when i learn some backend
 
 
 ## Bugs:
 - button location(on load perfect, bug came when user decline location on load and after allow location, then user need allow two times to get current location weather)
 
 ## Done:
+
+- ~~css fixes for mobile~~
+
 - ~~issue with first load componed that contain 5 days forcast doeasnt show~~
 
 - ~~change photo of weather depend on current weather~~
