@@ -16,6 +16,7 @@ React weather app made with funcional component and open Weather Api
 ## Bugs:
 - button location(on load perfect, bug came when user decline location on load and after allow location, then user need allow two times to get current location weather)
 - some kind of bug on mobile on first load that doeasnt ask user for current location, and button doeasnt work too!!
+-on ios app doeasnt ask for location on load
 
 ## Done:
 
