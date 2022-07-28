@@ -22,6 +22,14 @@ function DayWeatherInfo(props){
                         <h2>{props.todayForcast.main.humidity}</h2>
                         <h4>%</h4>
                     </div>
+                    <div className="weekTemperature__container__element--progresDiv">
+                        <div className="weekTemperature__container__element__progresDiv--legend">
+                            <h6>0%</h6>
+                            <h6>50%</h6>
+                            <h6>100%</h6>
+                        </div>
+                        <progress value={props.todayForcast.main.humidity} max="100"></progress>
+                    </div>
                 </div> : <h5>loading</h5>}
 
                 {props.todayForcast.visibility !== undefined ? <div className="weekTemperature__container--element ">

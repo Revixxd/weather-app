@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const DayWeatherInfoStyled = styled.div`
+
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -12,6 +13,9 @@ export const DayWeatherInfoStyled = styled.div`
     h2{
         font-weight: 600;
     }
+    progress{
+        accent-color: #FFEC65;
+    }
     .weekTemperature--container{
         display: grid;
         grid-template-columns: repeat(auto-fit,minmax(250px, 1fr));
@@ -20,19 +24,15 @@ export const DayWeatherInfoStyled = styled.div`
     .weekTemperature__container--element{
         background-color: ${props => props.theme.elementBackGround};
 
-
-
         display: flex;
         flex-direction: column;
 
-        padding: 0.25em;
+        padding: 1em;
         
         flex-basis: 200px;
         flex-grow: 1;
         align-items: center;
-    }
-    .weekTemperature__container__element--upperElement{
-        height: 9vh;
+        justify-content: center;
     }
     .weekTemperature__container__element--textContent{
         display: flex;
@@ -40,5 +40,19 @@ export const DayWeatherInfoStyled = styled.div`
         gap: 0.2rem;
         align-items: first baseline;
     }
-    
+    .weekTemperature__container__element__textContent--progresDiv{
+        display:flex;
+        flex-direction: column;
+
+    }
+    .weekTemperature__container__element__progresDiv--legend{
+        display: flex;
+        justify-content: space-between;
+
+        h6{
+            font-size: 12px
+        }
+    }
+
+
 `
