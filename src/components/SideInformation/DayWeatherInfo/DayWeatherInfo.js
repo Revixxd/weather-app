@@ -3,8 +3,10 @@ import React from "react";
 import {DayWeatherInfoStyled} from "./dayWeatherInfoStyling"
 
 function DayWeatherInfo(props){
+    let visibility = props.todayForcast.visibility / 100
     return(
         <DayWeatherInfoStyled>
+            
             <h3>Today’s Hightlights </h3>
             <div className="weekTemperature--container">
 
@@ -12,7 +14,7 @@ function DayWeatherInfo(props){
                     <h4>Wind Status</h4>
                     <div className="weekTemperature__container__element--textContent">
                         <h2>{props.todayForcast.wind.speed}</h2>
-                        <h4>mph</h4>
+                        <h3>m/s</h3>
                     </div>
                 </div> : <h5>loading</h5>}
 
@@ -20,7 +22,7 @@ function DayWeatherInfo(props){
                     <h4>Humidity</h4>
                     <div className="weekTemperature__container__element--textContent">
                         <h2>{props.todayForcast.main.humidity}</h2>
-                        <h4>%</h4>
+                        <h3>%</h3>
                     </div>
                     <div className="weekTemperature__container__element--progresDiv">
                         <div className="weekTemperature__container__element__progresDiv--legend">
@@ -35,8 +37,8 @@ function DayWeatherInfo(props){
                 {props.todayForcast.visibility !== undefined ? <div className="weekTemperature__container--element ">
                     <h4>Visibility</h4>
                     <div className="weekTemperature__container__element--textContent">
-                        <h2>{props.todayForcast.visibility}</h2>
-                        {/* <h4></h4> */}
+                        <h2>{visibility }</h2>
+                        <h3>km</h3>
                     </div>
                 </div> : <h5>loading</h5>}
 
@@ -44,7 +46,7 @@ function DayWeatherInfo(props){
                     <h4>Air Pressure</h4>
                     <div className="weekTemperature__container__element--textContent">
                         <h2>{props.todayForcast.main.pressure}</h2>
-                        <h4>mb</h4>
+                        <h3>mb</h3>
                     </div>
                 </div> : <h5>loading</h5>}
 
