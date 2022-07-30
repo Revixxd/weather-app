@@ -18,7 +18,7 @@ React weather app made with funcional component and open Weather Api
 -on ios app doeasnt ask for location on load
 
 ## Done:
-- ~~add to fav~~
+- ~~favourite cities~~
 
 - ~~css fixes for mobile~~
 
