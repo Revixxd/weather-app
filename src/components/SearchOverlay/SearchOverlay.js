@@ -12,9 +12,11 @@ function SearchOverlay(props){
         props.handleClick()
         props.setUrlState(cityUrl(tempSearch))
     };
+
     //changing set to temp array to map over map function
-    let tempArray = new Array(props.favCity)
+    let tempArray = Array.from(props.favCity)
     const favCityElements = tempArray.map(element =>{
+        console.log(element)
         return(
             //make this component where element cna be deleted from set and maybe set to deafult ??
             <h3>{element}</h3>
@@ -40,7 +42,9 @@ function SearchOverlay(props){
                         >search</button>
                     </form>
                 </div>
-                {favCityElements}
+                <div className="styledSearchOverlay--favCityContainer">
+                    {favCityElements}
+                </div>
         </StyledSearchOverlay>
     )
 }

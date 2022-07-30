@@ -15,6 +15,12 @@ export const StyledSearchOverlay= styled.div`
     align-items: center;
     
     background-color: #1E213A;
+    .styledSearchOverlay--favCityContainer{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content:cen
+    }
 
     .styledSearchOverlay--formDiv form{
         gap: 2vw;
