@@ -36,12 +36,7 @@ function MainInformation(props){
     }, [props.todayForcast.weather])
     
     function addToFav(city){
-        //max ammout of save city 
-        if(props.favCity.size < 5){
-            props.setFavCity(oldSet => new Set([...oldSet, city]))
-        }else{
-            alert("you can only save 5 cities at one")
-        }
+        props.setFavCity(oldSet => new Set([...oldSet, city]))
     }
 
     return(
