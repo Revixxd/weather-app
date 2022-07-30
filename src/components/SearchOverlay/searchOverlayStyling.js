@@ -1,20 +1,24 @@
 import styled from "styled-components";
 
 export const StyledSearchOverlay= styled.div`
+    background-color: #1E213A;  
 
     position: absolute;
     z-index: 1;
 
     width: 80%;
     height: 100%;
-
-    display: flex;
-    flex-direction: column;
-    gap: 3vh;
-    justify-content: flex-start;
-    align-items: center;
     
-    background-color: #1E213A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .styledSearchOverlay--container{
+        height: 95%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 2vh;
+    }
     .styledSearchOverlay--exitComponentDiv{
         width: 100%;
         display: flex;
@@ -38,7 +42,7 @@ export const StyledSearchOverlay= styled.div`
         gap: 1vw;
         display: flex;
         flex-direction: row;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
     }
     .styledSearchOverlay--formDiv input{
         width: 60%;

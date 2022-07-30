@@ -36,31 +36,33 @@ function SearchOverlay(props){
 
     return(
         <StyledSearchOverlay>
-            <div className="styledSearchOverlay--exitComponentDiv">
-                <AiOutlineClose 
-                color="white"
-                fontSize= "25px"
-                onClick={props.changeSearchState}
-                />
-            </div>
-            <div className="styledSearchOverlay--formDiv">
-                <form onSubmit = {handleClick}>
-                    <input
-                        // className= {`form-inputElement ${props.errorSearch ? "test":""}`}
-                        placeholder="Search location"
-                        type="text"
-                        value={tempSearch}
-                        onChange={event => (setCurrentSearch(event.target.value))}
+            <div className="styledSearchOverlay--container">
+                <div className="styledSearchOverlay--exitComponentDiv">
+                    <AiOutlineClose 
+                    color="white"
+                    fontSize= "25px"
+                    onClick={props.changeSearchState}
                     />
-                    <button
-                        className="form-buttonElement"
-                        type="submit"
-                        onClick={handleClick}
-                    >search</button>
-                </form>
-            </div>
-            <div className="styledSearchOverlay--favCityContainer">
-                {favCityElements}
+                </div>
+                <div className="styledSearchOverlay--formDiv">
+                    <form onSubmit = {handleClick}>
+                        <input
+                            // className= {`form-inputElement ${props.errorSearch ? "test":""}`}
+                            placeholder="Search location"
+                            type="text"
+                            value={tempSearch}
+                            onChange={event => (setCurrentSearch(event.target.value))}
+                        />
+                        <button
+                            className="form-buttonElement"
+                            type="submit"
+                            onClick={handleClick}
+                        >search</button>
+                    </form>
+                </div>
+                <div className="styledSearchOverlay--favCityContainer">
+                    {favCityElements}
+                </div>
             </div>
         </StyledSearchOverlay>
     )
