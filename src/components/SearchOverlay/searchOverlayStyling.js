@@ -15,19 +15,35 @@ export const StyledSearchOverlay= styled.div`
     align-items: center;
     
     background-color: #1E213A;
-    .styledSearchOverlay--favCityContainer{
+    .styledSearchOverlay--exitComponentDiv{
+        width: 100%;
         display: flex;
+        justify-content: flex-end;
+    }
+    .styledSearchOverlay--exitComponentDiv:hover{
+        cursor: pointer;
+    }
+    .styledSearchOverlay--favCityContainer{
+        width: 100%;
+        display: flex;
+        gap: 2vh;
         flex-direction: column;
         flex-wrap: nowrap;
-        justify-content:cen
+        justify-content:center;
     }
-
+    .styledSearchOverlay--formDiv{
+        width: 100%;
+    }
     .styledSearchOverlay--formDiv form{
-        gap: 2vw;
+        gap: 1vw;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-    }.styledSearchOverlay--formDiv form > *{
+    }
+    .styledSearchOverlay--formDiv input{
+        width: 60%;
+    }
+    .styledSearchOverlay--formDiv form > *{
         padding: 0.85em;
     }
     .form-inputElement{

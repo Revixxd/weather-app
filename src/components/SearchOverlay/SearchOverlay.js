@@ -36,10 +36,13 @@ function SearchOverlay(props){
 
     return(
         <StyledSearchOverlay>
-            <AiOutlineClose 
-            color="white"
-            onClick={props.changeSearchState}
-            />
+            <div className="styledSearchOverlay--exitComponentDiv">
+                <AiOutlineClose 
+                color="white"
+                fontSize= "25px"
+                onClick={props.changeSearchState}
+                />
+            </div>
             <div className="styledSearchOverlay--formDiv">
                 <form onSubmit = {handleClick}>
                     <input

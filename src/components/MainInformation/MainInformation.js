@@ -10,11 +10,13 @@ import { getPhotosUrl } from "../../functions/photosURL";
 import { MainInformationStyled } from "./mainIformationStyling"
 import {BiCurrentLocation} from "@react-icons/all-files/bi/BiCurrentLocation"
 import {AiOutlineHeart} from "@react-icons/all-files/ai/AiOutlineHeart"
+import {AiFillHeart} from "@react-icons/all-files/ai/AiFillHeart"
 
 
 
 function MainInformation(props){
     const [isSearchComponent,setIsSearchComponent] = React.useState(false)
+    const [favImg, setFavImg] = React.useState(false)
 
     function changeSearchState(){
         setIsSearchComponent(prevState => !prevState)
@@ -38,7 +40,6 @@ function MainInformation(props){
     function addToFav(city){
         props.setFavCity(oldSet => new Set([...oldSet, city]))
     }
-
     return(
         <MainInformationStyled>
             {isSearchComponent && <SearchOverlay
@@ -62,7 +63,7 @@ function MainInformation(props){
                         className="container__locationInputDiv--roundedButton"
                         onClick ={()=> addToFav(props.cityInfo.name)}
                     >
-                        <AiOutlineHeart/>
+                        {favImg ? <AiFillHeart /> :<AiOutlineHeart/> }
                     </button>
                 </div>
                 <div className="container--imageContainer">
