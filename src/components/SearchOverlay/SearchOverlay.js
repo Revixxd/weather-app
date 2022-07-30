@@ -6,6 +6,8 @@ import { StyledSearchOverlay } from "./searchOverlayStyling";
 import { cityUrl } from "../../functions/url";
 //components
 import FavCityElement from "./favCityElement/FavCityElement";
+//icons
+import {AiOutlineClose} from "@react-icons/all-files/ai/AiOutlineClose"
 
 function SearchOverlay(props){
     const [tempSearch, setCurrentSearch] = React.useState('')
@@ -34,26 +36,29 @@ function SearchOverlay(props){
 
     return(
         <StyledSearchOverlay>
-                <div className="styledSearchOverlay--formDiv">
-                    <form onSubmit = {handleClick}>
-                        <input
-                            // className= {`form-inputElement ${props.errorSearch ? "test":""}`}
-                            className= {`form-inputElement ${props.errorSearch ? "test":""}`}
-                            placeholder="Search location"
-                            type="text"
-                            value={tempSearch}
-                            onChange={event => (setCurrentSearch(event.target.value))}
-                        />
-                        <button
-                            className="form-buttonElement"
-                            type="submit"
-                            onClick={handleClick}
-                        >search</button>
-                    </form>
-                </div>
-                <div className="styledSearchOverlay--favCityContainer">
-                    {favCityElements}
-                </div>
+            <AiOutlineClose 
+            color="white"
+            onClick={props.changeSearchState}
+            />
+            <div className="styledSearchOverlay--formDiv">
+                <form onSubmit = {handleClick}>
+                    <input
+                        // className= {`form-inputElement ${props.errorSearch ? "test":""}`}
+                        placeholder="Search location"
+                        type="text"
+                        value={tempSearch}
+                        onChange={event => (setCurrentSearch(event.target.value))}
+                    />
+                    <button
+                        className="form-buttonElement"
+                        type="submit"
+                        onClick={handleClick}
+                    >search</button>
+                </form>
+            </div>
+            <div className="styledSearchOverlay--favCityContainer">
+                {favCityElements}
+            </div>
         </StyledSearchOverlay>
     )
 }
