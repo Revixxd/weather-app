@@ -9,6 +9,7 @@ import { getPhotosUrl } from "../../functions/photosURL";
 
 import { MainInformationStyled } from "./mainIformationStyling"
 import {BiCurrentLocation} from "@react-icons/all-files/bi/BiCurrentLocation"
+import {AiOutlineHeart} from "@react-icons/all-files/ai/AiOutlineHeart"
 
 
 
@@ -34,6 +35,11 @@ function MainInformation(props){
             setCurrentWeather(props.todayForcast.weather[0].main)
         }
     }, [props.todayForcast.weather])
+    
+    function addToFav(city){
+        console.log(props.searchCity)
+        props.favCity.push(props.searchCity)
+    }
 
     return(
         <MainInformationStyled>
@@ -48,10 +54,16 @@ function MainInformation(props){
                 <div className="container--locationInputDiv">
                     <button onClick={changeSearchState}>Search for places</button>
                     <button 
-                    className="container__locationInputDiv--roundedButton"
-                    onClick={() =>  props.getCoords() }
-                    ><BiCurrentLocation/></button>
-
+                        className="container__locationInputDiv--roundedButton"
+                        onClick={() =>  props.getCoords() }>
+                        <BiCurrentLocation/>
+                    </button>
+                    <button
+                        className="container__locationInputDiv--roundedButton"
+                        onClick ={()=> addToFav(props.cityInfo.name)}
+                    >
+                        <AiOutlineHeart/>
+                    </button>
                 </div>
                 <div className="container--imageContainer">
                     <img alt="weatherImage" src={getPhotosUrl(currentWeather)}></img>
