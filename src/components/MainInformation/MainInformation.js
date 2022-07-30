@@ -9,12 +9,12 @@ import { getPhotosUrl } from "../../functions/photosURL";
 
 import { MainInformationStyled } from "./mainIformationStyling"
 import {BiCurrentLocation} from "@react-icons/all-files/bi/BiCurrentLocation"
+import {AiOutlineHeart} from "@react-icons/all-files/ai/AiOutlineHeart"
 
 
 
 function MainInformation(props){
-    const deafulComponentState = false
-    const [isSearchComponent,setIsSearchComponent] = React.useState(deafulComponentState)
+    const [isSearchComponent,setIsSearchComponent] = React.useState(false)
 
     function changeSearchState(){
         setIsSearchComponent(prevState => !prevState)
@@ -34,24 +34,36 @@ function MainInformation(props){
             setCurrentWeather(props.todayForcast.weather[0].main)
         }
     }, [props.todayForcast.weather])
+    
+    function addToFav(city){
+        props.setFavCity(oldSet => new Set([...oldSet, city]))
+    }
 
     return(
         <MainInformationStyled>
-            {isSearchComponent && <SearchOverlay 
+            {isSearchComponent && <SearchOverlay
+            setFavCity = {props.setFavCity}
+            favCity = {props.favCity}
             changeCity = {props.changeCity} 
             searchCity = {props.searchCity} 
             errorSearch = {props.errorSearch} 
-            handleClick = {changeSearchState}
+            changeSearchState = {changeSearchState}
             setUrlState = {props.setUrlState}
             />}
             <div className="container">
                 <div className="container--locationInputDiv">
                     <button onClick={changeSearchState}>Search for places</button>
                     <button 
-                    className="container__locationInputDiv--roundedButton"
-                    onClick={() =>  props.getCoords() }
-                    ><BiCurrentLocation/></button>
-
+                        className="container__locationInputDiv--roundedButton"
+                        onClick={() =>  props.getCoords() }>
+                        <BiCurrentLocation/>
+                    </button>
+                    <button
+                        className="container__locationInputDiv--roundedButton"
+                        onClick ={()=> addToFav(props.cityInfo.name)}
+                    >
+                        <AiOutlineHeart/>
+                    </button>
                 </div>
                 <div className="container--imageContainer">
                     <img alt="weatherImage" src={getPhotosUrl(currentWeather)}></img>

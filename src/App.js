@@ -37,7 +37,9 @@ function App() {
   const [urlState, setUrlState] = React.useState(cityUrl)
   
   const [errorSearch, setErrorSearch] = React.useState(false)
-  
+
+  const [favCity, setFavCity] = React.useState(new Set())
+
 
   React.useEffect(()=>{
     setCityInfo(data.city)
@@ -101,6 +103,8 @@ function App() {
       <GlobalStyles/>
       <StyledApp>
           <MainInformation 
+          setFavCity = {setFavCity}
+          favCity = {favCity}
           searchCity = {searchCity} 
           changeCity = {setSearchCity} 
           cityInfo = {cityInfo} 
