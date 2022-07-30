@@ -24,6 +24,8 @@ function SearchOverlay(props){
             <FavCityElement
             key={key}
             element = {element}
+            favCity = {props.favCity}
+            setFavCity = {props.setFavCity}
             />
         )
     })

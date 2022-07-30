@@ -43,6 +43,7 @@ function MainInformation(props){
     return(
         <MainInformationStyled>
             {isSearchComponent && <SearchOverlay
+            setFavCity = {props.setFavCity}
             favCity = {props.favCity}
             changeCity = {props.changeCity} 
             searchCity = {props.searchCity} 
