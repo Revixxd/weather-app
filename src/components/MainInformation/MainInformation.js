@@ -14,8 +14,7 @@ import {AiOutlineHeart} from "@react-icons/all-files/ai/AiOutlineHeart"
 
 
 function MainInformation(props){
-    const deafulComponentState = false
-    const [isSearchComponent,setIsSearchComponent] = React.useState(deafulComponentState)
+    const [isSearchComponent,setIsSearchComponent] = React.useState(false)
 
     function changeSearchState(){
         setIsSearchComponent(prevState => !prevState)
@@ -53,7 +52,7 @@ function MainInformation(props){
             changeCity = {props.changeCity} 
             searchCity = {props.searchCity} 
             errorSearch = {props.errorSearch} 
-            handleClick = {changeSearchState}
+            changeSearchState = {changeSearchState}
             setUrlState = {props.setUrlState}
             />}
             <div className="container">
