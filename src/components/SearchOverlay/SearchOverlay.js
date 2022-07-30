@@ -5,7 +5,6 @@ import { StyledSearchOverlay } from "./searchOverlayStyling";
 import { cityUrl } from "../../functions/url";
 
 function SearchOverlay(props){
-
     const [tempSearch, setCurrentSearch] = React.useState('')
     const handleClick = event => {
         props.changeCity(tempSearch)
@@ -13,6 +12,14 @@ function SearchOverlay(props){
         props.handleClick()
         props.setUrlState(cityUrl(tempSearch))
     };
+    //changing set to temp array to map over map function
+    let tempArray = new Array(props.favCity)
+    const favCityElements = tempArray.map(element =>{
+        return(
+            //make this component where element cna be deleted from set and maybe set to deafult ??
+            <h3>{element}</h3>
+        )
+    })
 
     return(
         <StyledSearchOverlay>
@@ -33,6 +40,7 @@ function SearchOverlay(props){
                         >search</button>
                     </form>
                 </div>
+                {favCityElements}
         </StyledSearchOverlay>
     )
 }

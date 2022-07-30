@@ -38,7 +38,7 @@ function App() {
   
   const [errorSearch, setErrorSearch] = React.useState(false)
 
-  const favCity = []
+  const [favCity, setFavCity] = React.useState(new Set())
 
 
   React.useEffect(()=>{
@@ -103,6 +103,7 @@ function App() {
       <GlobalStyles/>
       <StyledApp>
           <MainInformation 
+          setFavCity = {setFavCity}
           favCity = {favCity}
           searchCity = {searchCity} 
           changeCity = {setSearchCity} 

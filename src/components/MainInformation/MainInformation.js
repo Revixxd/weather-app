@@ -37,13 +37,13 @@ function MainInformation(props){
     }, [props.todayForcast.weather])
     
     function addToFav(city){
-        console.log(props.searchCity)
-        props.favCity.push(props.searchCity)
+        props.setFavCity(oldSet => new Set([...oldSet, city]))
     }
 
     return(
         <MainInformationStyled>
-            {isSearchComponent && <SearchOverlay 
+            {isSearchComponent && <SearchOverlay
+            favCity = {props.favCity}
             changeCity = {props.changeCity} 
             searchCity = {props.searchCity} 
             errorSearch = {props.errorSearch} 
