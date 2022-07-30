@@ -36,7 +36,6 @@ During this project I learned how to fetch and use api
 
 Desktop:
 ![App Screenshot](https://i.imgur.com/5NiGWFC.jpg)
-![App Screenshot](https://i.imgur.com/4Numi2z.jpg)
 Mobile:
 <p align="center">
   <img width="460" height="100%" src="https://i.imgur.com/MCqynSJ.jpg">
