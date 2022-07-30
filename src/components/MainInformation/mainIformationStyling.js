@@ -27,7 +27,7 @@ export const MainInformationStyled = styled.div`
     .container{
         
         height: 95%;
-        width: 80%;
+        width: 95%;
         max-width: 400px;
 
         justify-content: space-between;
@@ -37,9 +37,15 @@ export const MainInformationStyled = styled.div`
     }
     .container--locationInputDiv{
         width: 100%;
+        max-width: 400px;
         display: flex;
         flex-direction: row;
         justify-content: inherit;
+    }
+    .container__locationInputDiv--sideDiv{
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
     }
     .container--locationInputDiv svg{
         font-size: 25px;
@@ -49,7 +55,7 @@ export const MainInformationStyled = styled.div`
         color: ${props => props.theme.mainColor};
         background-color: ${props => props.theme.buttonBackground};
         border: none;
-        padding: 0.75em;
+        padding: 0.5em;
         display: flex;
     }
     .container__locationInputDiv--roundedButton{

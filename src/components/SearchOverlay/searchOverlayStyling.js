@@ -6,7 +6,7 @@ export const StyledSearchOverlay= styled.div`
     position: absolute;
     z-index: 1;
 
-    width: 80%;
+    width: 100%;
     height: 100%;
     
     display: flex;
@@ -14,7 +14,7 @@ export const StyledSearchOverlay= styled.div`
     align-items: center;
     .styledSearchOverlay--container{
         height: 95%;
-        width: 100%;
+        width: 80%;
         display: flex;
         flex-direction: column;
         gap: 2vh;

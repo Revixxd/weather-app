@@ -16,7 +16,6 @@ import {AiFillHeart} from "@react-icons/all-files/ai/AiFillHeart"
 
 function MainInformation(props){
     const [isSearchComponent,setIsSearchComponent] = React.useState(false)
-    const [favImg, setFavImg] = React.useState(false)
 
     function changeSearchState(){
         setIsSearchComponent(prevState => !prevState)
@@ -54,17 +53,19 @@ function MainInformation(props){
             <div className="container">
                 <div className="container--locationInputDiv">
                     <button onClick={changeSearchState}>Search for places</button>
-                    <button 
-                        className="container__locationInputDiv--roundedButton"
-                        onClick={() =>  props.getCoords() }>
-                        <BiCurrentLocation/>
-                    </button>
-                    <button
-                        className="container__locationInputDiv--roundedButton"
-                        onClick ={()=> addToFav(props.cityInfo.name)}
-                    >
-                        {favImg ? <AiFillHeart /> :<AiOutlineHeart/> }
-                    </button>
+                    <div className="container__locationInputDiv--sideDiv">
+                        <button 
+                            className="container__locationInputDiv--roundedButton"
+                            onClick={() =>  props.getCoords() }>
+                            <BiCurrentLocation/>
+                        </button>
+                        <button
+                            className="container__locationInputDiv--roundedButton"
+                            onClick ={()=> addToFav(props.cityInfo.name)}
+                        >
+                        <AiOutlineHeart/>
+                        </button>
+                    </div>
                 </div>
                 <div className="container--imageContainer">
                     <img alt="weatherImage" src={getPhotosUrl(currentWeather)}></img>
