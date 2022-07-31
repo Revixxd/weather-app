@@ -19,20 +19,21 @@ function SearchOverlay(props){
     };
 
     //changing set to temp array to map over map function
-    let tempArray = Array.from(props.favCity)
-    const favCityElements = tempArray.map((element, key) =>{
-        return(
-            <FavCityElement
-            key={key}
-            element = {element}
-            changeSearchState = {props.changeSearchState}
-            setUrlState = {props.setUrlState}
-            favCity = {props.favCity}
-            setFavCity = {props.setFavCity}
-            changeCity = {props.changeCity}
-            />
-        )
-    })
+    let tempArray = props.favCity
+    console.log(tempArray)
+    // const favCityElements = tempArray.map((element, key) =>{
+    //     return(
+    //         <FavCityElement
+    //         key={key}
+    //         element = {element}
+    //         changeSearchState = {props.changeSearchState}
+    //         setUrlState = {props.setUrlState}
+    //         favCity = {props.favCity}
+    //         setFavCity = {props.setFavCity}
+    //         changeCity = {props.changeCity}
+    //         />
+    //     )
+    // })
 
     return(
         <StyledSearchOverlay>
@@ -61,7 +62,7 @@ function SearchOverlay(props){
                     </form>
                 </div>
                 <div className="styledSearchOverlay--favCityContainer">
-                    {favCityElements}
+                    {/* {favCityElements} */}
                 </div>
             </div>
         </StyledSearchOverlay>

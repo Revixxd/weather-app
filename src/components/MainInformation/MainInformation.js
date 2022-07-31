@@ -37,7 +37,8 @@ function MainInformation(props){
     }, [props.todayForcast.weather])
     
     function addToFav(city){
-        props.setFavCity(oldSet => new Set([...oldSet, city]))
+        props.setFavCity(oldArray => [...oldArray, city])
+        localStorage.setItem("localfavCity", JSON.stringify(props.favCity))
     }
     return(
         <MainInformationStyled>
