@@ -7,7 +7,7 @@ React weather app made with funcional component and open Weather Api
 
 - theme accesability 
 - loading on components (with animation)
-- local storage to save favorites cities
+
 
 - hide api key <- propel way to do it use some kind of backend response to fully hide it, api is free to use so its no matter if its showed or hide. Probably will be done in future when i learn some backend
 - metric could be change by changing in link metric ( currently is converted using function)
@@ -18,6 +18,8 @@ React weather app made with funcional component and open Weather Api
 -on ios app doeasnt ask for location on load
 
 ## Done:
+- ~~local storage to save favorites cities~~ (try to use localStorage react hook, currently using plain JS parse/stringify/etc)
+
 - ~~favourite cities~~
 
 - ~~css fixes for mobile~~
