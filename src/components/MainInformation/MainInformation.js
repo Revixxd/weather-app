@@ -10,7 +10,7 @@ import { getPhotosUrl } from "../../functions/photosURL";
 import { MainInformationStyled } from "./mainIformationStyling"
 import {BiCurrentLocation} from "@react-icons/all-files/bi/BiCurrentLocation"
 import {AiOutlineHeart} from "@react-icons/all-files/ai/AiOutlineHeart"
-import {AiFillHeart} from "@react-icons/all-files/ai/AiFillHeart"
+// import {AiFillHeart} from "@react-icons/all-files/ai/AiFillHeart"
 
 
 
@@ -38,8 +38,11 @@ function MainInformation(props){
     
     function addToFav(city){
         props.setFavCity(oldArray => [...oldArray, city])
+    }
+    if(props.favCity.length !== 0){
         localStorage.setItem("localfavCity", JSON.stringify(props.favCity))
     }
+        
     return(
         <MainInformationStyled>
             {isSearchComponent && <SearchOverlay
