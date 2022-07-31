@@ -10,7 +10,7 @@ import { getPhotosUrl } from "../../functions/photosURL";
 import { MainInformationStyled } from "./mainIformationStyling"
 import {BiCurrentLocation} from "@react-icons/all-files/bi/BiCurrentLocation"
 import {AiOutlineHeart} from "@react-icons/all-files/ai/AiOutlineHeart"
-import {AiFillHeart} from "@react-icons/all-files/ai/AiFillHeart"
+// import {AiFillHeart} from "@react-icons/all-files/ai/AiFillHeart"
 
 
 
@@ -37,8 +37,16 @@ function MainInformation(props){
     }, [props.todayForcast.weather])
     
     function addToFav(city){
-        props.setFavCity(oldSet => new Set([...oldSet, city]))
+        props.setFavCity(oldArray => new Set([...oldArray, city]))
     }
+    if(props.favCity.length !== 0){
+        let tempArray = Array.from(props.favCity)
+        localStorage.setItem("localfavCity", JSON.stringify(tempArray))
+    }
+    if(props.favCity.length === 0){
+        localStorage.setItem("localfavCity", "empty")
+    }
+        
     return(
         <MainInformationStyled>
             {isSearchComponent && <SearchOverlay

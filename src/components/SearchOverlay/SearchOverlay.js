@@ -18,8 +18,7 @@ function SearchOverlay(props){
         props.setUrlState(cityUrl(tempSearch))
     };
 
-    //changing set to temp array to map over map function
-    let tempArray = Array.from(props.favCity)
+    const tempArray = Array.from(props.favCity)
     const favCityElements = tempArray.map((element, key) =>{
         return(
             <FavCityElement
