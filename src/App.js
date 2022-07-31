@@ -39,12 +39,13 @@ function App() {
   const [errorSearch, setErrorSearch] = React.useState(false)
 
   const [favCity, setFavCity] = React.useState([])
-  console.log(favCity)
 
   React.useEffect(()=>{
-    let tempArray = JSON.parse(localStorage.getItem("localfavCity"))
-    if(tempArray !==null){
-      setFavCity(new Set(tempArray))
+    if(localStorage.getItem("localfavCity") !== "empty"){
+      let tempArray = JSON.parse(localStorage.getItem("localfavCity"))
+      if(tempArray !== undefined){
+        setFavCity(new Set(tempArray))
+      }
     }
   }, [])
 

@@ -43,6 +43,9 @@ function MainInformation(props){
         let tempArray = Array.from(props.favCity)
         localStorage.setItem("localfavCity", JSON.stringify(tempArray))
     }
+    if(props.favCity.length === 0){
+        localStorage.setItem("localfavCity", "empty")
+    }
         
     return(
         <MainInformationStyled>
