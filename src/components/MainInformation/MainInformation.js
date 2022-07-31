@@ -39,14 +39,10 @@ function MainInformation(props){
     function addToFav(city){
         props.setFavCity(oldArray => new Set([...oldArray, city]))
     }
-    if(props.favCity.length !== 0){
-        let tempArray = Array.from(props.favCity)
+    let tempArray = Array.from(props.favCity)
+    if(tempArray.length !== 0){
         localStorage.setItem("localfavCity", JSON.stringify(tempArray))
-    }
-    if(props.favCity.length === 0){
-        localStorage.setItem("localfavCity", "empty")
-    }
-        
+    } 
     return(
         <MainInformationStyled>
             {isSearchComponent && <SearchOverlay

@@ -41,13 +41,15 @@ function App() {
   const [favCity, setFavCity] = React.useState([])
 
   React.useEffect(()=>{
-    if(localStorage.getItem("localfavCity") !== "empty"){
-      let tempArray = JSON.parse(localStorage.getItem("localfavCity"))
-      if(tempArray !== undefined){
+      if (localStorage.getItem("localfavCity") === ""){
+        return
+      }else{
+        let tempArray = JSON.parse(localStorage.getItem("localfavCity"))
         setFavCity(new Set(tempArray))
       }
-    }
+      
   }, [])
+
 
   React.useEffect(()=>{
     setCityInfo(data.city)
