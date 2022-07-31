@@ -34,8 +34,8 @@ React weather app made with funcional component and open Weather Api
 
 During this project I learned how to :
 
--fetch and use api
--use localStorage and sessionStorage
+- fetch and use api
+- use localStorage and sessionStorage
 
 ## Screenshots
 
