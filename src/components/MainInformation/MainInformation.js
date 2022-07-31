@@ -15,6 +15,8 @@ import {AiOutlineHeart} from "@react-icons/all-files/ai/AiOutlineHeart"
 
 
 function MainInformation(props){
+
+    //searchComponent
     const [isSearchComponent,setIsSearchComponent] = React.useState(false)
 
     function changeSearchState(){
@@ -36,6 +38,8 @@ function MainInformation(props){
         }
     }, [props.todayForcast.weather])
     
+
+    //add to fav button
     function addToFav(city){
         props.setFavCity(oldArray => new Set([...oldArray, city]))
     }
