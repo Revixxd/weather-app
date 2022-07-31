@@ -3,14 +3,15 @@ import React from "react"
 import SearchOverlay from "../SearchOverlay/SearchOverlay"
 
 //functions
-import {calculateTemp} from "../../functions/calculateTemp";
+import { deleteTask } from "../../functions/deleteElement";
+import { calculateTemp} from "../../functions/calculateTemp";
 import { converDate } from "../../functions/converDate";
 import { getPhotosUrl } from "../../functions/photosURL";
 
 import { MainInformationStyled } from "./mainIformationStyling"
 import {BiCurrentLocation} from "@react-icons/all-files/bi/BiCurrentLocation"
 import {AiOutlineHeart} from "@react-icons/all-files/ai/AiOutlineHeart"
-// import {AiFillHeart} from "@react-icons/all-files/ai/AiFillHeart"
+import {AiFillHeart} from "@react-icons/all-files/ai/AiFillHeart"
 
 
 
@@ -40,13 +41,35 @@ function MainInformation(props){
     
 
     //add to fav button
+    let tempArray = Array.from(props.favCity)
+
     function addToFav(city){
         props.setFavCity(oldArray => new Set([...oldArray, city]))
+        setFavButtonState(oldState => !oldState)
+
+        //visual effect for icon
+        if(favButtonState === true){
+            console.log("test")
+            deleteTask(props.favCity, props.cityInfo.city)
+            setFavButtonState(false)
+        }
     }
-    let tempArray = Array.from(props.favCity)
     if(tempArray.length !== 0){
         localStorage.setItem("localfavCity", JSON.stringify(tempArray))
     } 
+        //viusal fav button 
+    const [favButtonState, setFavButtonState] = React.useState(false)
+    React.useEffect(()=>{
+        if(props.cityInfo !== undefined){
+            if(tempArray.find(element => element === props.cityInfo.name)){
+                setFavButtonState(true)
+            }else{
+                setFavButtonState(false)
+            }
+        }
+    },[tempArray])
+
+
     return(
         <MainInformationStyled>
             {isSearchComponent && <SearchOverlay
@@ -71,7 +94,7 @@ function MainInformation(props){
                             className="container__locationInputDiv--roundedButton"
                             onClick ={()=> addToFav(props.cityInfo.name)}
                         >
-                        <AiOutlineHeart/>
+                        {favButtonState ? <AiFillHeart/> :<AiOutlineHeart/> }
                         </button>
                     </div>
                 </div>
