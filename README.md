@@ -32,7 +32,10 @@ React weather app made with funcional component and open Weather Api
 
 ## Lessons Learned
 
-During this project I learned how to fetch and use api
+During this project I learned how to :
+
+-fetch and use api
+-use localStorage and sessionStorage
 
 ## Screenshots
 
