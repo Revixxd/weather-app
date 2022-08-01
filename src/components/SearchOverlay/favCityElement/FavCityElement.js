@@ -21,7 +21,7 @@ function FavCityElement(props){
             >{props.element}</h4>
             <button
             onClick={() => (props.setFavCity(deleteTask(props.favCity,props.element)))}
-            ><AiOutlineClose/></button>
+            ><AiOutlineClose color="white"/></button>
             {/* <button>Set to daefult</button> */}
         </StyledFavCityElement>
     )

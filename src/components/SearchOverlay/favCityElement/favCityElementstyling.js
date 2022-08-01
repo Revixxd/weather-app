@@ -9,4 +9,9 @@ export const StyledFavCityElement = styled.div`
     h4:hover{
         cursor: pointer;
     }
+    button{
+        font-size: 1.3rem;
+        background: none;
+        border: none;
+    }
 `
