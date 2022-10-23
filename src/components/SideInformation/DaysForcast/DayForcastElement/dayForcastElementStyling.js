@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
-import {elementBackGround} from "../../../styling/themes" 
+import { elementBackGround } from '../../../styling/themes'
 
 export const DayForcastElementStyled = styled.div`
     width: 100%;
@@ -11,15 +11,19 @@ export const DayForcastElementStyled = styled.div`
     justify-content: space-evenly;
     align-items: center;
     gap: 0.3rem;
-    background-color: ${props => props.theme.elementBackGround};
+    background-color: ${(props) => props.theme.elementBackGround};
 
-    .imgContainer{
-        max-width: 5rem
+    h4 {
+        font-size: 14px;
     }
-    .imgContainer img{
+    .imgContainer {
+        max-width: 5rem;
+    }
+    .imgContainer img {
         max-width: 100%;
+        max-height: 80px;
     }
-    .tempretureInfo{
+    .tempretureInfo {
         width: 80%;
         display: flex;
         justify-content: inherit;
