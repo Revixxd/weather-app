@@ -4,7 +4,7 @@ import React from 'react'
 import { StyledFavCityElement } from './favCityElementstyling'
 
 //functions
-import { deleteTask } from '../../../functions/deleteElement'
+import { deleteElement } from '../../../functions/deleteElement'
 import { cityUrl } from '../../../functions/url'
 
 //icons
@@ -19,7 +19,9 @@ function FavCityElement(props) {
             <h4 onClick={(event) => afterClick(event)}>{props.element}</h4>
             <button
                 onClick={() =>
-                    props.setFavCity(deleteTask(props.favCity, props.element))
+                    props.setFavCity(
+                        deleteElement(props.favCity, props.element)
+                    )
                 }
             >
                 <RiDeleteBin5Line color="white" />
