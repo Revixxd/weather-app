@@ -27,7 +27,7 @@ function App() {
     }
 
     const [data, setData] = React.useState({})
-    const [cityInfo, setCityInfo] = React.useState({})
+    const [cityInfo, setCityInfo] = React.useState()
     const [daysForcast, setDaysForcast] = React.useState([])
     const [todayForcast, setTodayForcast] = React.useState({})
 
@@ -99,16 +99,18 @@ function App() {
         <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
             <GlobalStyles />
             <StyledApp>
-                <MainInformation
-                    searchCity={searchCity}
-                    changeCity={setSearchCity}
-                    cityInfo={cityInfo}
-                    todayForcast={todayForcast}
-                    errorSearch={errorSearch}
-                    degreInfo={degreInfo}
-                    setUrlState={setUrlState}
-                    getCoords={getCoords}
-                />
+                {cityInfo && (
+                    <MainInformation
+                        searchCity={searchCity}
+                        changeCity={setSearchCity}
+                        cityInfo={cityInfo}
+                        todayForcast={todayForcast}
+                        errorSearch={errorSearch}
+                        degreInfo={degreInfo}
+                        setUrlState={setUrlState}
+                        getCoords={getCoords}
+                    />
+                )}
                 <SideInformation
                     degreInfo={degreInfo}
                     setDegreInfo={setDegreInfo}

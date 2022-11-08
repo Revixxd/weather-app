@@ -8,6 +8,7 @@ import { calculateTemp } from '../../functions/calculateTemp'
 import { converDate } from '../../functions/converDate'
 import { getPhotosUrl } from '../../functions/photosURL'
 import { updateLocalStorage } from '../../functions/updateLocalStorage'
+import { checkInArray } from '../../functions/checkInArray'
 
 import { MainInformationStyled } from './mainIformationStyling'
 import { BiCurrentLocation } from '@react-icons/all-files/bi/BiCurrentLocation'
@@ -51,7 +52,9 @@ function MainInformation(props) {
     }, [])
 
     //viusal fav button
-    const [favButtonState, setFavButtonState] = React.useState(false)
+    let intialState = checkInArray(props.cityInfo.name, favCity)
+
+    const [favButtonState, setFavButtonState] = React.useState(intialState)
 
     function addToFav(city) {
         if (favButtonState === false) {
