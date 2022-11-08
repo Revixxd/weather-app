@@ -27,7 +27,7 @@ function App() {
     }
 
     const [data, setData] = React.useState({})
-    const [cityInfo, setCityInfo] = React.useState({})
+    const [cityInfo, setCityInfo] = React.useState()
     const [daysForcast, setDaysForcast] = React.useState([])
     const [todayForcast, setTodayForcast] = React.useState({})
 
@@ -36,17 +36,6 @@ function App() {
     const [urlState, setUrlState] = React.useState(cityUrl)
 
     const [errorSearch, setErrorSearch] = React.useState(false)
-
-    const [favCity, setFavCity] = React.useState([])
-
-    React.useEffect(() => {
-        if (localStorage.getItem('localfavCity') === '') {
-            return
-        } else {
-            let tempArray = JSON.parse(localStorage.getItem('localfavCity'))
-            setFavCity(new Set(tempArray))
-        }
-    }, [])
 
     React.useEffect(() => {
         setCityInfo(data.city)
@@ -110,18 +99,18 @@ function App() {
         <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
             <GlobalStyles />
             <StyledApp>
-                <MainInformation
-                    setFavCity={setFavCity}
-                    favCity={favCity}
-                    searchCity={searchCity}
-                    changeCity={setSearchCity}
-                    cityInfo={cityInfo}
-                    todayForcast={todayForcast}
-                    errorSearch={errorSearch}
-                    degreInfo={degreInfo}
-                    setUrlState={setUrlState}
-                    getCoords={getCoords}
-                />
+                {cityInfo && (
+                    <MainInformation
+                        searchCity={searchCity}
+                        changeCity={setSearchCity}
+                        cityInfo={cityInfo}
+                        todayForcast={todayForcast}
+                        errorSearch={errorSearch}
+                        degreInfo={degreInfo}
+                        setUrlState={setUrlState}
+                        getCoords={getCoords}
+                    />
+                )}
                 <SideInformation
                     degreInfo={degreInfo}
                     setDegreInfo={setDegreInfo}

@@ -7,6 +7,8 @@ import { deleteElement } from '../../functions/deleteElement'
 import { calculateTemp } from '../../functions/calculateTemp'
 import { converDate } from '../../functions/converDate'
 import { getPhotosUrl } from '../../functions/photosURL'
+import { updateLocalStorage } from '../../functions/updateLocalStorage'
+import { checkInArray } from '../../functions/checkInArray'
 
 import { MainInformationStyled } from './mainIformationStyling'
 import { BiCurrentLocation } from '@react-icons/all-files/bi/BiCurrentLocation'
@@ -36,41 +38,45 @@ function MainInformation(props) {
         }
     }, [props.todayForcast.weather])
 
-    //add to fav button
-    let tempArray = Array.from(props.favCity)
+    //fav city
+    const [favCity, setFavCity] = React.useState([])
+
+    //fetching list of favcity from localStorage
+    React.useEffect(() => {
+        let tempArray = JSON.parse(localStorage.getItem('localfavCity'))
+        if (tempArray.length !== 0 || tempArray === null) {
+            setFavCity(new Set(tempArray))
+        }
+    }, [])
+
+    //viusal fav button
+    let intialState = checkInArray(props.cityInfo.name, favCity)
+    React.useEffect(() => {
+        setFavButtonState(intialState)
+    }, [intialState])
+
+    const [favButtonState, setFavButtonState] = React.useState(intialState)
 
     function addToFav(city) {
-        props.setFavCity((oldArray) => new Set([...oldArray, city]))
-        setFavButtonState((oldState) => !oldState)
-
-        //visual effect for icon
-        if (favButtonState === true) {
-            console.log('test')
-            deleteElement(props.favCity, props.cityInfo.city)
+        if (favButtonState === false) {
+            setFavButtonState(true)
+            setFavCity(new Set([...favCity, city]))
+        } else {
+            setFavCity(deleteElement(favCity, city))
             setFavButtonState(false)
         }
     }
-    if (tempArray.length !== 0) {
-        localStorage.setItem('localfavCity', JSON.stringify(tempArray))
-    }
-    //viusal fav button
-    const [favButtonState, setFavButtonState] = React.useState(false)
+
     React.useEffect(() => {
-        if (props.cityInfo !== undefined) {
-            if (tempArray.find((element) => element === props.cityInfo.name)) {
-                setFavButtonState(true)
-            } else {
-                setFavButtonState(false)
-            }
-        }
-    }, [tempArray])
+        updateLocalStorage(favCity)
+    }, [favCity])
 
     return (
         <MainInformationStyled>
             {isSearchComponent && (
                 <SearchOverlay
-                    setFavCity={props.setFavCity}
-                    favCity={props.favCity}
+                    setFavCity={setFavCity}
+                    favCity={favCity}
                     changeCity={props.changeCity}
                     searchCity={props.searchCity}
                     errorSearch={props.errorSearch}
