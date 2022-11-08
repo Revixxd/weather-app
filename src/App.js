@@ -37,17 +37,6 @@ function App() {
 
     const [errorSearch, setErrorSearch] = React.useState(false)
 
-    const [favCity, setFavCity] = React.useState([])
-
-    React.useEffect(() => {
-        if (localStorage.getItem('localfavCity') === '') {
-            return
-        } else {
-            let tempArray = JSON.parse(localStorage.getItem('localfavCity'))
-            setFavCity(new Set(tempArray))
-        }
-    }, [])
-
     React.useEffect(() => {
         setCityInfo(data.city)
         if (data.list !== undefined) {
@@ -111,8 +100,6 @@ function App() {
             <GlobalStyles />
             <StyledApp>
                 <MainInformation
-                    setFavCity={setFavCity}
-                    favCity={favCity}
                     searchCity={searchCity}
                     changeCity={setSearchCity}
                     cityInfo={cityInfo}

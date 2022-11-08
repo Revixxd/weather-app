@@ -36,17 +36,28 @@ function MainInformation(props) {
         }
     }, [props.todayForcast.weather])
 
+    const [favCity, setFavCity] = React.useState([])
+
+    React.useEffect(() => {
+        if (localStorage.getItem('localfavCity') === '') {
+            return
+        } else {
+            let tempArray = JSON.parse(localStorage.getItem('localfavCity'))
+            setFavCity(new Set(tempArray))
+        }
+    }, [])
+
     //add to fav button
-    let tempArray = Array.from(props.favCity)
+    let tempArray = Array.from(favCity)
 
     function addToFav(city) {
-        props.setFavCity((oldArray) => new Set([...oldArray, city]))
+        setFavCity((oldArray) => new Set([...oldArray, city]))
         setFavButtonState((oldState) => !oldState)
 
         //visual effect for icon
         if (favButtonState === true) {
             console.log('test')
-            deleteElement(props.favCity, props.cityInfo.city)
+            deleteElement(favCity, props.cityInfo.city)
             setFavButtonState(false)
         }
     }
@@ -69,8 +80,8 @@ function MainInformation(props) {
         <MainInformationStyled>
             {isSearchComponent && (
                 <SearchOverlay
-                    setFavCity={props.setFavCity}
-                    favCity={props.favCity}
+                    setFavCity={setFavCity}
+                    favCity={favCity}
                     changeCity={props.changeCity}
                     searchCity={props.searchCity}
                     errorSearch={props.errorSearch}
