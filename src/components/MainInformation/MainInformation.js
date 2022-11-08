@@ -7,6 +7,7 @@ import { deleteElement } from '../../functions/deleteElement'
 import { calculateTemp } from '../../functions/calculateTemp'
 import { converDate } from '../../functions/converDate'
 import { getPhotosUrl } from '../../functions/photosURL'
+import { updateLocalStorage } from '../../functions/updateLocalStorage'
 
 import { MainInformationStyled } from './mainIformationStyling'
 import { BiCurrentLocation } from '@react-icons/all-files/bi/BiCurrentLocation'
@@ -61,6 +62,10 @@ function MainInformation(props) {
             setFavButtonState(false)
         }
     }
+
+    React.useEffect(() => {
+        updateLocalStorage(favCity)
+    }, [favCity])
 
     return (
         <MainInformationStyled>
