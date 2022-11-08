@@ -4,7 +4,6 @@ React weather app made with funcional component and open Weather Api
 
 ## Features
 - make more css styling for components (animation on search overlay component)
-
 - theme accesability 
 - loading on components (with animation)
 
