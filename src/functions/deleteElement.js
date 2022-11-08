@@ -1,7 +1,8 @@
 export function deleteElement(array, elementToDelete) {
     let tempArray = Array.from(array)
-    let newArray = [...tempArray].filter((item) => item !== elementToDelete)
-    localStorage.setItem('localfavCity', newArray)
-    console.log(newArray)
+    let newArray = new Set(
+        [...tempArray].filter((item) => item !== elementToDelete)
+    )
+
     return newArray
 }

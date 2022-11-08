@@ -36,8 +36,10 @@ function MainInformation(props) {
         }
     }, [props.todayForcast.weather])
 
+    //fav city
     const [favCity, setFavCity] = React.useState([])
 
+    //fetching list of favcity from localStorage
     React.useEffect(() => {
         if (localStorage.getItem('localfavCity') === '') {
             return
@@ -47,34 +49,18 @@ function MainInformation(props) {
         }
     }, [])
 
-    //add to fav button
-    let tempArray = Array.from(favCity)
+    //viusal fav button
+    const [favButtonState, setFavButtonState] = React.useState(false)
 
     function addToFav(city) {
-        setFavCity((oldArray) => new Set([...oldArray, city]))
-        setFavButtonState((oldState) => !oldState)
-
-        //visual effect for icon
-        if (favButtonState === true) {
-            console.log('test')
-            deleteElement(favCity, props.cityInfo.city)
+        if (favButtonState === false) {
+            setFavButtonState(true)
+            setFavCity(new Set([...favCity, city]))
+        } else {
+            setFavCity(deleteElement(favCity, city))
             setFavButtonState(false)
         }
     }
-    if (tempArray.length !== 0) {
-        localStorage.setItem('localfavCity', JSON.stringify(tempArray))
-    }
-    //viusal fav button
-    const [favButtonState, setFavButtonState] = React.useState(false)
-    React.useEffect(() => {
-        if (props.cityInfo !== undefined) {
-            if (tempArray.find((element) => element === props.cityInfo.name)) {
-                setFavButtonState(true)
-            } else {
-                setFavButtonState(false)
-            }
-        }
-    }, [tempArray])
 
     return (
         <MainInformationStyled>
