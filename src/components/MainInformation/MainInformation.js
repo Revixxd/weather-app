@@ -57,15 +57,13 @@ function MainInformation(props) {
         if (favButtonState === false) {
             setFavButtonState(true)
             setFavCity(new Set([...favCity, city]))
+            updateLocalStorage(favCity)
         } else {
             setFavCity(deleteElement(favCity, city))
             setFavButtonState(false)
+            updateLocalStorage(favCity)
         }
     }
-
-    React.useEffect(() => {
-        updateLocalStorage(favCity)
-    }, [favCity])
 
     return (
         <MainInformationStyled>
