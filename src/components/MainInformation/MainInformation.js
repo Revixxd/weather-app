@@ -43,16 +43,17 @@ function MainInformation(props) {
 
     //fetching list of favcity from localStorage
     React.useEffect(() => {
-        if (localStorage.getItem('localfavCity') === '') {
-            return
-        } else {
-            let tempArray = JSON.parse(localStorage.getItem('localfavCity'))
+        let tempArray = JSON.parse(localStorage.getItem('localfavCity'))
+        if (tempArray.length !== 0 || tempArray === null) {
             setFavCity(new Set(tempArray))
         }
     }, [])
 
     //viusal fav button
     let intialState = checkInArray(props.cityInfo.name, favCity)
+    React.useEffect(() => {
+        setFavButtonState(intialState)
+    }, [intialState])
 
     const [favButtonState, setFavButtonState] = React.useState(intialState)
 
@@ -60,13 +61,15 @@ function MainInformation(props) {
         if (favButtonState === false) {
             setFavButtonState(true)
             setFavCity(new Set([...favCity, city]))
-            updateLocalStorage(favCity)
         } else {
             setFavCity(deleteElement(favCity, city))
             setFavButtonState(false)
-            updateLocalStorage(favCity)
         }
     }
+
+    React.useEffect(() => {
+        updateLocalStorage(favCity)
+    }, [favCity])
 
     return (
         <MainInformationStyled>
