@@ -17,7 +17,7 @@ import { AiFillHeart } from '@react-icons/all-files/ai/AiFillHeart'
 
 function MainInformation(props) {
     //searchComponent
-    const [isSearchComponent, setIsSearchComponent] = React.useState(false)
+    const [isSearchComponent, setIsSearchComponent] = React.useState()
 
     function changeSearchState() {
         setIsSearchComponent((prevState) => !prevState)
@@ -81,6 +81,7 @@ function MainInformation(props) {
                     searchCity={props.searchCity}
                     errorSearch={props.errorSearch}
                     changeSearchState={changeSearchState}
+                    isSearchComponent={isSearchComponent}
                     setUrlState={props.setUrlState}
                 />
             )}

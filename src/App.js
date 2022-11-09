@@ -33,9 +33,9 @@ function App() {
 
     const [searchCity, setSearchCity] = React.useState('warsaw')
 
-    const [urlState, setUrlState] = React.useState(cityUrl)
+    const [urlState, setUrlState] = React.useState()
 
-    const [errorSearch, setErrorSearch] = React.useState(false)
+    const [errorSearch, setErrorSearch] = React.useState()
 
     React.useEffect(() => {
         setCityInfo(data.city)
@@ -78,17 +78,14 @@ function App() {
             .get(urlState)
             .then((response) => {
                 setData(response.data)
+                setErrorSearch(false)
             })
             .catch((err) => {
                 if (err.response) {
-                    // console.log(err.response.status);
                     if (err.response.status === 404) {
+                        console.log(`ERROR: ${err.response.status}`)
                         setErrorSearch(true)
-                    } else {
-                        setErrorSearch(false)
                     }
-                    // console.log(err.response.statusText);
-                    // console.log(err.message);
                     // console.log(err.response.headers);
                     // console.log(err.response.data);
                 }
