@@ -35,7 +35,7 @@ function App() {
 
     const [urlState, setUrlState] = React.useState()
 
-    const [errorSearch, setErrorSearch] = React.useState()
+    const [errorSearch, setErrorSearch] = React.useState(false)
 
     React.useEffect(() => {
         setCityInfo(data.city)
@@ -73,24 +73,26 @@ function App() {
         )
     }, [])
 
-    React.useEffect(() => {
-        axios
-            .get(urlState)
-            .then((response) => {
-                setData(response.data)
-                setErrorSearch(false)
-            })
-            .catch((err) => {
-                if (err.response) {
-                    if (err.response.status === 404) {
-                        console.log(`ERROR: ${err.response.status}`)
+    function fetchData(url) {
+        return new Promise((resolve) =>
+            fetch(url)
+                .then((response) => response.json())
+                .then((response) => {
+                    if (response.cod === '200') {
+                        resolve(setData(response))
+                        setErrorSearch(false)
+                        console.log('fetched')
+                    } else {
+                        console.log(`ERROR: ${response.cod}`)
                         setErrorSearch(true)
                     }
-                    // console.log(err.response.headers);
-                    // console.log(err.response.data);
-                }
-            })
-    }, [urlState])
+                })
+        )
+    }
+
+    React.useEffect(() => {
+        fetchData(cityUrl(searchCity))
+    }, [])
 
     return (
         <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
@@ -98,6 +100,7 @@ function App() {
             <StyledApp>
                 {cityInfo && (
                     <MainInformation
+                        fetchData={fetchData}
                         searchCity={searchCity}
                         changeCity={setSearchCity}
                         cityInfo={cityInfo}

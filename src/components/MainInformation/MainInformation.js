@@ -75,6 +75,7 @@ function MainInformation(props) {
         <MainInformationStyled>
             {isSearchComponent && (
                 <SearchOverlay
+                    fetchData={props.fetchData}
                     setFavCity={setFavCity}
                     favCity={favCity}
                     changeCity={props.changeCity}

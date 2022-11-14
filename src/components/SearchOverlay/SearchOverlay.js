@@ -12,10 +12,16 @@ import { AiOutlineClose } from '@react-icons/all-files/ai/AiOutlineClose'
 function SearchOverlay(props) {
     const [tempSearch, setCurrentSearch] = React.useState('')
 
-    function onSubmit(event) {
+    async function onSubmit(event) {
         props.changeCity(tempSearch)
         event.preventDefault()
-        props.setUrlState(cityUrl(tempSearch))
+        await props.fetchData(cityUrl(tempSearch))
+
+        if (props.isSearchComponent === true) {
+            if (props.errorSearch === false) {
+                props.changeSearchState()
+            }
+        }
     }
 
     //if error search will be change outside of component, component will be turn off
