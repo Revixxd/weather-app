@@ -81,7 +81,6 @@ function App() {
                     if (response.cod === '200') {
                         resolve(setData(response))
                         setErrorSearch(false)
-                        console.log('fetched')
                     } else {
                         console.log(`ERROR: ${response.cod}`)
                         setErrorSearch(true)

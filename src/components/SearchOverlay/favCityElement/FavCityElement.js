@@ -11,7 +11,7 @@ import { cityUrl } from '../../../functions/url'
 import { RiDeleteBin5Line } from '@react-icons/all-files/ri/RiDeleteBin5Line'
 function FavCityElement(props) {
     function afterClick(event) {
-        props.setUrlState(cityUrl(event.target.innerText))
+        props.fetchData(cityUrl(event.target.innerText))
         props.changeSearchState()
     }
     return (

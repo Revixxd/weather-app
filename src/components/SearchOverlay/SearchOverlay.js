@@ -39,6 +39,7 @@ function SearchOverlay(props) {
             <FavCityElement
                 key={key}
                 element={element}
+                fetchData={props.fetchData}
                 changeSearchState={props.changeSearchState}
                 setUrlState={props.setUrlState}
                 favCity={props.favCity}
