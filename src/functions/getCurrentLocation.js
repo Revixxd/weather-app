@@ -17,8 +17,10 @@ export function getCurrentLocation() {
             // console.log(`Longitude: ${crd.longitude}`)
             // console.log(`More or less ${crd.accuracy} meters.`)
             // console.log(coord)
-            localStorage.setItem('currentLocation', JSON.stringify(coord))
-            resolve(coord)
+
+            resolve(
+                localStorage.setItem('currentLocation', JSON.stringify(coord))
+            )
         }
 
         function error(err) {

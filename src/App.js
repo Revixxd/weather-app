@@ -48,15 +48,8 @@ function App() {
     //temperature definition
     const [degreInfo, setDegreInfo] = React.useState('celcius')
 
-    // for location
-    const cords = React.useMemo(() => {
-        if (JSON.parse(localStorage.getItem('currentLocation')) !== null) {
-            return JSON.parse(localStorage.getItem('currentLocation'))
-        } else {
-            return
-        }
-    }, [localStorage.getItem('currentLocation')])
     async function getCoords() {
+        const cords = JSON.parse(localStorage.getItem('currentLocation'))
         await getCurrentLocation()
         fetchData(coordUrl(cords))
     }
@@ -78,13 +71,11 @@ function App() {
     }
 
     React.useEffect(() => {
-        //option when user agree to share location and it's saved
-        if (localStorage.getItem('currentLocation') !== null) {
-            fetchData(coordUrl(cords))
-        } else {
-            //deafult option when user doeasnt want share location
-            fetchData(cityUrl(searchCity))
-        }
+        // //option when user agree to share location and it's saved
+        // // but is should be user location be saved in local storage ???
+        // if (localStorage.getItem('currentLocation') !== null) {
+        //     fetchData(coordUrl(cords))
+        fetchData(cityUrl(searchCity))
     }, [])
 
     return (
