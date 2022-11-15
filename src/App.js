@@ -43,35 +43,23 @@ function App() {
             setTodayForcast(data.list[0])
             setDaysForcast(getForcastDays(data.list, todayForcast))
         }
-        // setSearchCity('')
     }, [data, todayForcast])
 
     //temperature definition
     const [degreInfo, setDegreInfo] = React.useState('celcius')
 
     // for location
-    const [cords, setCoord] = React.useState([])
-
-    function getCoords() {
-        setCoord(getCurrentLocation())
-        setUrlState(coordUrl(cords))
+    const cords = React.useMemo(() => {
+        if (JSON.parse(localStorage.getItem('currentLocation')) !== null) {
+            return JSON.parse(localStorage.getItem('currentLocation'))
+        } else {
+            return
+        }
+    }, [localStorage.getItem('currentLocation')])
+    async function getCoords() {
+        await getCurrentLocation()
+        fetchData(coordUrl(cords))
     }
-
-    React.useEffect((searchCity) => {
-        navigator.geolocation.getCurrentPosition(
-            function (position) {
-                const crd = position.coords
-                const coord = []
-                coord.push(crd.latitude)
-                coord.push(crd.longitude)
-                setCoord(coord)
-                setUrlState(coordUrl(coord))
-            },
-            function () {
-                setUrlState(cityUrl(searchCity))
-            }
-        )
-    }, [])
 
     function fetchData(url) {
         return new Promise((resolve) =>
@@ -90,7 +78,13 @@ function App() {
     }
 
     React.useEffect(() => {
-        fetchData(cityUrl(searchCity))
+        //option when user agree to share location and it's saved
+        if (localStorage.getItem('currentLocation') !== null) {
+            fetchData(coordUrl(cords))
+        } else {
+            //deafult option when user doeasnt want share location
+            fetchData(cityUrl(searchCity))
+        }
     }, [])
 
     return (
