@@ -24,15 +24,6 @@ function SearchOverlay(props) {
         }
     }
 
-    //if error search will be change outside of component, component will be turn off
-    React.useEffect(() => {
-        if (props.isSearchComponent === true) {
-            if (props.errorSearch === false) {
-                props.changeSearchState()
-            }
-        }
-    }, [props.errorSearch])
-
     const tempArray = Array.from(props.favCity)
     const favCityElements = tempArray.map((element, key) => {
         return (
