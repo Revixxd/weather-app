@@ -71,7 +71,7 @@ function App() {
         )
     }
 
-    React.useEffect((searchCity) => {
+    React.useEffect(() => {
         // //option when user agree to share location and it's saved
         // // but is should be user location be saved in local storage ???
         // if (localStorage.getItem('currentLocation') !== null) {
