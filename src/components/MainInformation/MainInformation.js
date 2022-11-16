@@ -17,7 +17,7 @@ import { AiFillHeart } from '@react-icons/all-files/ai/AiFillHeart'
 
 function MainInformation(props) {
     //searchComponent
-    const [isSearchComponent, setIsSearchComponent] = React.useState(false)
+    const [isSearchComponent, setIsSearchComponent] = React.useState()
 
     function changeSearchState() {
         setIsSearchComponent((prevState) => !prevState)
@@ -44,7 +44,11 @@ function MainInformation(props) {
     //fetching list of favcity from localStorage
     React.useEffect(() => {
         let tempArray = JSON.parse(localStorage.getItem('localfavCity'))
+<<<<<<< HEAD
         if (tempArray !== null || tempArray.length !== 0) {
+=======
+        if (tempArray !== null && tempArray.length !== 0) {
+>>>>>>> working-on-errorSearch
             setFavCity(new Set(tempArray))
         }
     }, [])
@@ -75,12 +79,14 @@ function MainInformation(props) {
         <MainInformationStyled>
             {isSearchComponent && (
                 <SearchOverlay
+                    fetchData={props.fetchData}
                     setFavCity={setFavCity}
                     favCity={favCity}
                     changeCity={props.changeCity}
                     searchCity={props.searchCity}
                     errorSearch={props.errorSearch}
                     changeSearchState={changeSearchState}
+                    isSearchComponent={isSearchComponent}
                     setUrlState={props.setUrlState}
                 />
             )}

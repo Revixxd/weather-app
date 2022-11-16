@@ -11,12 +11,27 @@ import { AiOutlineClose } from '@react-icons/all-files/ai/AiOutlineClose'
 
 function SearchOverlay(props) {
     const [tempSearch, setCurrentSearch] = React.useState('')
-    function onSubmit(event) {
+
+    async function onSubmit(event) {
         props.changeCity(tempSearch)
         event.preventDefault()
-        props.changeSearchState()
-        props.setUrlState(cityUrl(tempSearch))
+        await props.fetchData(cityUrl(tempSearch))
+
+        if (props.isSearchComponent === true) {
+            if (props.errorSearch === false) {
+                props.changeSearchState()
+            }
+        }
     }
+
+    //if error search will be change outside of component, component will be turn off
+    React.useEffect(() => {
+        if (props.isSearchComponent === true) {
+            if (props.errorSearch === false) {
+                props.changeSearchState()
+            }
+        }
+    }, [props.errorSearch])
 
     const tempArray = Array.from(props.favCity)
     const favCityElements = tempArray.map((element, key) => {
@@ -24,6 +39,7 @@ function SearchOverlay(props) {
             <FavCityElement
                 key={key}
                 element={element}
+                fetchData={props.fetchData}
                 changeSearchState={props.changeSearchState}
                 setUrlState={props.setUrlState}
                 favCity={props.favCity}
@@ -46,6 +62,11 @@ function SearchOverlay(props) {
                 <div className="styledSearchOverlay--formDiv">
                     <form onSubmit={(event) => onSubmit(event)}>
                         <input
+                            className={
+                                props.errorSearch
+                                    ? `${'form-buttonElement-error'}`
+                                    : `${''}`
+                            }
                             placeholder="Search location"
                             type="text"
                             value={tempSearch}

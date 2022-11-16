@@ -1,30 +1,33 @@
 export function getCurrentLocation() {
-    const coord = []
-    const options = {
-        enableHighAccuracy: true,
-        timeout: 5000,
-        maximumAge: 0
-    };
+    return new Promise((resolve) => {
+        const coord = []
+        const options = {
+            enableHighAccuracy: true,
+            timeout: 5000,
+            maximumAge: 0,
+        }
 
-    function success(pos) {
-        const crd = pos.coords;
-        
-        coord.push(crd.latitude)
-        coord.push(crd.longitude)
-        // console.log('Your current position is:');
-        // console.log(`Latitude : ${crd.latitude}`);
-        // console.log(`Longitude: ${crd.longitude}`);
-        // console.log(`More or less ${crd.accuracy} meters.`);
-        // console.log(coord)
-        return coord
-    }
+        function success(pos) {
+            const crd = pos.coords
 
-    function error(err) {
-        console.warn(`ERROR(${err.code}): ${err.message}`);
-        return "error"
-    }
+            coord.push(crd.latitude)
+            coord.push(crd.longitude)
+            // console.log('Your current position is:')
+            // console.log(`Latitude : ${crd.latitude}`)
+            // console.log(`Longitude: ${crd.longitude}`)
+            // console.log(`More or less ${crd.accuracy} meters.`)
+            // console.log(coord)
 
-    navigator.geolocation.getCurrentPosition(success, error, options);
-    
+            resolve(
+                localStorage.setItem('currentLocation', JSON.stringify(coord))
+            )
+        }
 
+        function error(err) {
+            console.warn(`ERROR(${err.code}): ${err.message}`)
+            return 'error'
+        }
+
+        navigator.geolocation.getCurrentPosition(success, error, options)
+    })
 }

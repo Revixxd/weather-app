@@ -33,7 +33,7 @@ function App() {
 
     const [searchCity, setSearchCity] = React.useState('warsaw')
 
-    const [urlState, setUrlState] = React.useState(cityUrl)
+    const [urlState, setUrlState] = React.useState()
 
     const [errorSearch, setErrorSearch] = React.useState(false)
 
@@ -43,57 +43,40 @@ function App() {
             setTodayForcast(data.list[0])
             setDaysForcast(getForcastDays(data.list, todayForcast))
         }
-        // setSearchCity('')
     }, [data, todayForcast])
 
     //temperature definition
     const [degreInfo, setDegreInfo] = React.useState('celcius')
 
-    // for location
-    const [cords, setCoord] = React.useState([])
-
-    function getCoords() {
-        setCoord(getCurrentLocation())
-        setUrlState(coordUrl(cords))
+    async function getCoords() {
+        await getCurrentLocation()
+        const cords = JSON.parse(localStorage.getItem('currentLocation'))
+        fetchData(coordUrl(cords))
     }
 
-    React.useEffect((searchCity) => {
-        navigator.geolocation.getCurrentPosition(
-            function (position) {
-                const crd = position.coords
-                const coord = []
-                coord.push(crd.latitude)
-                coord.push(crd.longitude)
-                setCoord(coord)
-                setUrlState(coordUrl(coord))
-            },
-            function () {
-                setUrlState(cityUrl(searchCity))
-            }
+    function fetchData(url) {
+        return new Promise((resolve) =>
+            fetch(url)
+                .then((response) => response.json())
+                .then((response) => {
+                    if (response.cod === '200') {
+                        resolve(setData(response))
+                        setErrorSearch(false)
+                    } else {
+                        console.log(`ERROR: ${response.cod}`)
+                        setErrorSearch(true)
+                    }
+                })
         )
-    }, [])
+    }
 
     React.useEffect(() => {
-        axios
-            .get(urlState)
-            .then((response) => {
-                setData(response.data)
-            })
-            .catch((err) => {
-                if (err.response) {
-                    // console.log(err.response.status);
-                    if (err.response.status === 404) {
-                        setErrorSearch(true)
-                    } else {
-                        setErrorSearch(false)
-                    }
-                    // console.log(err.response.statusText);
-                    // console.log(err.message);
-                    // console.log(err.response.headers);
-                    // console.log(err.response.data);
-                }
-            })
-    }, [urlState])
+        // //option when user agree to share location and it's saved
+        // // but is should be user location be saved in local storage ???
+        // if (localStorage.getItem('currentLocation') !== null) {
+        //     fetchData(coordUrl(cords))
+        fetchData(cityUrl(searchCity))
+    }, [])
 
     return (
         <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
@@ -101,6 +84,7 @@ function App() {
             <StyledApp>
                 {cityInfo && (
                     <MainInformation
+                        fetchData={fetchData}
                         searchCity={searchCity}
                         changeCity={setSearchCity}
                         cityInfo={cityInfo}
