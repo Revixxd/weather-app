@@ -26,17 +26,19 @@ function App() {
         theme === 'light' ? setTheme('dark') : setTheme('light')
     }
 
+    //could be stored in one useMemo onbject
     const [data, setData] = React.useState({})
     const [cityInfo, setCityInfo] = React.useState()
     const [daysForcast, setDaysForcast] = React.useState([])
     const [todayForcast, setTodayForcast] = React.useState({})
 
+    //state which keep curent city, deafult set to "Warsaw"
     const [searchCity, setSearchCity] = React.useState('warsaw')
 
-    const [urlState, setUrlState] = React.useState()
+    //temperature definition
+    const [degreInfo, setDegreInfo] = React.useState('celcius')
 
-    const [errorSearch, setErrorSearch] = React.useState(false)
-
+    //update data, cityinfo, datsForcast and today <- could be replace with useMemo to be updated each time if one of this is changed
     React.useEffect(() => {
         setCityInfo(data.city)
         if (data.list !== undefined) {
@@ -45,15 +47,15 @@ function App() {
         }
     }, [data, todayForcast])
 
-    //temperature definition
-    const [degreInfo, setDegreInfo] = React.useState('celcius')
-
+    //functiopn to call current coord and with given coords set request to api and set to current location
     async function getCoords() {
         await getCurrentLocation()
         const cords = JSON.parse(localStorage.getItem('currentLocation'))
         fetchData(coordUrl(cords))
     }
 
+    //error state need to decler if city is found or not
+    const [errorSearch, setErrorSearch] = React.useState(false)
     function fetchData(url) {
         return new Promise((resolve) =>
             fetch(url)
@@ -91,7 +93,6 @@ function App() {
                         todayForcast={todayForcast}
                         errorSearch={errorSearch}
                         degreInfo={degreInfo}
-                        setUrlState={setUrlState}
                         getCoords={getCoords}
                     />
                 )}

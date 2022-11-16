@@ -11,6 +11,8 @@ import { updateLocalStorage } from '../../functions/updateLocalStorage'
 import { checkInArray } from '../../functions/checkInArray'
 
 import { MainInformationStyled } from './mainIformationStyling'
+
+//icons
 import { BiCurrentLocation } from '@react-icons/all-files/bi/BiCurrentLocation'
 import { AiOutlineHeart } from '@react-icons/all-files/ai/AiOutlineHeart'
 import { AiFillHeart } from '@react-icons/all-files/ai/AiFillHeart'
@@ -57,6 +59,7 @@ function MainInformation(props) {
 
     const [favButtonState, setFavButtonState] = React.useState(intialState)
 
+    //function which declater what buttonState is and what to do with current city
     function addToFav(city) {
         if (favButtonState === false) {
             setFavButtonState(true)
@@ -83,7 +86,6 @@ function MainInformation(props) {
                     errorSearch={props.errorSearch}
                     changeSearchState={changeSearchState}
                     isSearchComponent={isSearchComponent}
-                    setUrlState={props.setUrlState}
                 />
             )}
             <div className="container">
