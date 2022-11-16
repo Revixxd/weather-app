@@ -1,5 +1,4 @@
 import React from 'react'
-import axios from 'axios'
 
 //global styles
 import { GlobalStyles } from './components/styling/globalStyles'
@@ -72,7 +71,7 @@ function App() {
         )
     }
 
-    React.useEffect(() => {
+    React.useEffect((searchCity) => {
         // //option when user agree to share location and it's saved
         // // but is should be user location be saved in local storage ???
         // if (localStorage.getItem('currentLocation') !== null) {
