@@ -49,8 +49,8 @@ function App() {
     const [degreInfo, setDegreInfo] = React.useState('celcius')
 
     async function getCoords() {
-        const cords = JSON.parse(localStorage.getItem('currentLocation'))
         await getCurrentLocation()
+        const cords = JSON.parse(localStorage.getItem('currentLocation'))
         fetchData(coordUrl(cords))
     }
 
