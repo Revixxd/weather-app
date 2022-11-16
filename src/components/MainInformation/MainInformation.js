@@ -83,7 +83,6 @@ function MainInformation(props) {
                     errorSearch={props.errorSearch}
                     changeSearchState={changeSearchState}
                     isSearchComponent={isSearchComponent}
-                    setUrlState={props.setUrlState}
                 />
             )}
             <div className="container">
