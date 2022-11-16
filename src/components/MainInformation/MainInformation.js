@@ -44,11 +44,7 @@ function MainInformation(props) {
     //fetching list of favcity from localStorage
     React.useEffect(() => {
         let tempArray = JSON.parse(localStorage.getItem('localfavCity'))
-<<<<<<< HEAD
-        if (tempArray !== null || tempArray.length !== 0) {
-=======
         if (tempArray !== null && tempArray.length !== 0) {
->>>>>>> working-on-errorSearch
             setFavCity(new Set(tempArray))
         }
     }, [])
